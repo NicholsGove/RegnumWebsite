@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Features — Regnum Personia</title>
+<meta name="description" content="Every module in Regnum Personia: inventory, finance, AI forecasting, imports, activity, security and multi-site comparison.">
+<meta property="og:title" content="Features — Regnum Personia">
+<meta property="og:description" content="Every module in Regnum Personia: inventory, finance, AI forecasting, imports, activity, security and multi-site comparison.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="scrollbar" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Regnum Personia home">
+      <img src="assets/img/logo.png" alt="">
+      <span>Regnum Personia<small>Clinical Operations</small></span>
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html" class="active" aria-current="page">Features</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch between light and dark mode">
+        <span class="sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><span class="moon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span>
+      </button>
+      <a class="btn btn-primary btn-sm" href="#" data-open-waitlist>Request a demo</a>
+      <button class="icon-btn burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="head head--center" data-reveal>
+      <span class="eyebrow">Features</span>
+      <h1 style="font-size:clamp(2.1rem,4.4vw,3.4rem)">Everything in one place, nothing in the way</h1>
+      <p class="lede">Pick an area below. Each module is designed so the most common task is the first thing you can do on the screen.</p>
+    </div>
+
+    <div class="tabs" data-tabs role="tablist" data-reveal>
+      <button class="tab active" data-tab="ops" role="tab" aria-selected="true" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Operations
+      </button>
+      <button class="tab" data-tab="ai" role="tab" aria-selected="false" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a4 4 0 0 1 4 4v1a4 4 0 0 1 0 8v1a4 4 0 0 1-8 0v-1a4 4 0 0 1 0-8V7a4 4 0 0 1 4-4z"/></svg>
+        Intelligence
+      </button>
+      <button class="tab" data-tab="money" role="tab" aria-selected="false" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5.5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Money
+      </button>
+      <button class="tab" data-tab="data" role="tab" aria-selected="false" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+        Data &amp; imports
+      </button>
+      <button class="tab" data-tab="sec" role="tab" aria-selected="false" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Access &amp; trust
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+
+    <!-- ============ OPERATIONS ============ -->
+    <div class="tabpane active" data-pane="ops">
+      <div class="split" style="margin-bottom:56px">
+        <div>
+          <span class="eyebrow">Dashboard &amp; inventory</span>
+          <h2>The morning glance, then the deep dig</h2>
+          <p class="lede">The dashboard answers "is anything on fire?" in about four seconds. Inventory is where you go when the answer is yes.</p>
+          <ul class="ticklist" style="margin-top:22px">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Live KPI tiles: stock value, expiring soon, below reorder, movement</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Batch-level tracking with expiry dates and supplier reference</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stock movement history — who moved what, when, and why</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Saved views, so the counts you run weekly are one click away</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Command palette — jump anywhere without touching the mouse</li>
+          </ul>
+        </div>
+        <div>
+          <div class="imgslot imgslot--16x9">
+            <img src="assets/img/screen-dashboard.png" alt="The Regnum Personia dashboard">
+            <div class="imgslot-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+              <b>Screenshot: your dashboard</b>
+              <small>Take this from the running app at 1920×1080, light mode, with sample data loaded. Crop out the Windows title bar.</small>
+              <code>screen-dashboard.png · 1920×1080</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card" data-reveal>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+          <h3>Stock alerts</h3>
+          <p>Low-stock, out-of-stock and expiry warnings, grouped so you deal with a category once instead of dismissing twelve notifications.</p>
+        </div>
+        <div class="card" data-reveal data-d="1">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+          <h3>Appointments view</h3>
+          <p>A calendar of booked activity sitting next to the stock it will consume, so busy weeks are provisioned for in advance.</p>
+        </div>
+        <div class="card" data-reveal data-d="2">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg></div>
+          <h3>Facility comparison</h3>
+          <p>Two or more sites side by side on consumption, spend per visit and waste — the fastest way to find a process problem.</p>
+        </div>
+        <div class="card" data-reveal>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+          <h3>Activity log</h3>
+          <p>An append-only record of every adjustment, with the user and reason attached. Useful for audits and for the awkward conversations before them.</p>
+        </div>
+        <div class="card" data-reveal data-d="1">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+          <h3>Search that forgives</h3>
+          <p>Partial names, wrong spellings, supplier codes and batch numbers all find the same item. Nobody should need to know the catalogue name.</p>
+        </div>
+        <div class="card" data-reveal data-d="2">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2.5 5-2.5 8h-9C7.5 14 5 12.5 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg></div>
+          <h3>Guided first run</h3>
+          <p>A setup wizard and an optional tour, so the first person to open Regnum is not staring at an empty database wondering where to begin.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ AI ============ -->
+    <div class="tabpane" data-pane="ai">
+      <div class="split" style="margin-bottom:56px">
+        <div>
+          <span class="eyebrow eyebrow--teal">Intelligence</span>
+          <h2>Forecasting that shows its working</h2>
+          <p class="lede">Regnum's models are deliberately legible. Each output carries the window it looked at, the confidence it has, and the records it drew on — so a manager can sanity-check it in ten seconds.</p>
+          <ul class="ticklist" style="margin-top:22px">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Demand forecasting</b> per item, adapting to season and trend</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Expiry risk</b> scored per batch against real movement, not shelf life alone</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Anomaly detection</b> for consumption that stops looking like itself</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Refill suggestions</b> with quantity, timing and the reasoning behind both</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Plain-language queries</b> — ask a question, get a number and its source</li>
+          </ul>
+        </div>
+        <div>
+          <div class="imgslot imgslot--16x9">
+            <img src="assets/img/screen-ai.png" alt="The AI insights screen in Regnum Personia">
+            <div class="imgslot-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+              <b>Screenshot: AI insights page</b>
+              <small>Capture the forecast chart and a couple of insight cards. Make sure the sample figures on screen are ones you're happy to publish.</small>
+              <code>screen-ai.png · 1920×1080</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="card card--pad-sm" data-reveal>
+          <h4>Adaptive reorder points</h4>
+          <p style="font-size:.92rem">Minimum levels that move with the season instead of sitting at whatever was typed in during setup.</p>
+        </div>
+        <div class="card card--pad-sm" data-reveal data-d="1">
+          <h4>Swarm &amp; ensemble forecasts</h4>
+          <p style="font-size:.92rem">Several models run in parallel and disagreement between them is surfaced rather than averaged away.</p>
+        </div>
+        <div class="card card--pad-sm" data-reveal data-d="2">
+          <h4>Revenue projection</h4>
+          <p style="font-size:.92rem">Expected income for the period ahead, built from booked activity and historical conversion.</p>
+        </div>
+        <div class="card card--pad-sm" data-reveal data-d="3">
+          <h4>Assistant</h4>
+          <p style="font-size:.92rem">A built-in helper that can find a screen, explain a number, or draft the order you were about to work out by hand.</p>
+        </div>
+      </div>
+
+      <div class="note" style="margin-top:30px">
+        <b>On confidence.</b> Where a forecast is thin — a new item, a short history, an erratic supplier — Regnum says so instead of producing a precise-looking number it cannot stand behind.
+      </div>
+    </div>
+
+    <!-- ============ MONEY ============ -->
+    <div class="tabpane" data-pane="money">
+      <div class="split" style="margin-bottom:56px">
+        <div>
+          <span class="eyebrow">Money</span>
+          <h2>Finance that reconciles itself</h2>
+          <p class="lede">Because stock movement and spend live in the same database, the finance screens are not a separate act of bookkeeping — they are the same events, counted in currency.</p>
+          <ul class="ticklist" style="margin-top:22px">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Spend, revenue and margin by period, category and site</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Idle-stock value — money sitting on a shelf not moving</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Accounting exports, including a Sage-compatible connector</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Date-range filters that persist across screens</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Waste and write-off tracking, so the cost of expiry is visible</li>
+          </ul>
+        </div>
+        <div>
+          <div class="imgslot imgslot--16x9">
+            <img src="assets/img/screen-finance.png" alt="The finances screen in Regnum Personia">
+            <div class="imgslot-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+              <b>Screenshot: finances page</b>
+              <small>Show the charts plus one table. Blur or replace any real supplier names before publishing.</small>
+              <code>screen-finance.png · 1920×1080</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tablewrap" data-reveal>
+        <table class="matrix">
+          <thead><tr><th>Question</th><th>Where it lives</th><th>Refreshes</th></tr></thead>
+          <tbody>
+            <tr><td>What did we spend on consumables this quarter?</td><td>Finances → spend by category</td><td class="yes">Live</td></tr>
+            <tr><td>How much stock value has not moved in 90 days?</td><td>Finances → idle stock</td><td class="yes">Live</td></tr>
+            <tr><td>What did expiry cost us last year?</td><td>Finances → write-offs</td><td class="yes">Live</td></tr>
+            <tr><td>What should the accountant receive?</td><td>Exports → accounting bundle</td><td>On demand</td></tr>
+            <tr><td>Which site earns most per visit?</td><td>Facility comparison</td><td class="yes">Live</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============ DATA ============ -->
+    <div class="tabpane" data-pane="data">
+      <div class="split" style="margin-bottom:56px">
+        <div>
+          <span class="eyebrow">Data &amp; imports</span>
+          <h2>Bring the spreadsheet you already have</h2>
+          <p class="lede">The import engine is built on the assumption that your file is imperfect — because it is, and so is everyone else's.</p>
+          <ul class="ticklist" style="margin-top:22px">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CSV and Excel upload with column mapping you confirm once</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> A row-level report of what imported, what did not, and why</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Full import history — every upload is versioned and reversible</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Scheduled backups, with a restore you can actually test</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Optional sync between sites when you want a group view</li>
+          </ul>
+        </div>
+        <div>
+          <div class="imgslot imgslot--16x9">
+            <img src="assets/img/screen-upload.png" alt="The data upload screen in Regnum Personia">
+            <div class="imgslot-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+              <b>Screenshot: data upload</b>
+              <small>The column-mapping step is the most reassuring one to show — it proves the import is not a black box.</small>
+              <code>screen-upload.png · 1920×1080</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>What you will need on day one:</b> an item list with names and units, whatever stock counts you have, and — ideally — twelve months of consumption or sales history. Less than that still works; the forecasts simply start cautious and sharpen as data accumulates.
+      </div>
+    </div>
+
+    <!-- ============ SECURITY ============ -->
+    <div class="tabpane" data-pane="sec">
+      <div class="split" style="margin-bottom:56px">
+        <div>
+          <span class="eyebrow">Access &amp; trust</span>
+          <h2>Who can see what, and who did what</h2>
+          <p class="lede">Clinics handle records that deserve care. Regnum's answer is boring and deliberate: least privilege by default, and a log of everything.</p>
+          <ul class="ticklist" style="margin-top:22px">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Four roles — standard user, staff, manager, administrator</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Per-screen permission guards, not just a hidden menu item</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Session handling with server-side logout and token invalidation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Audit trail on every adjustment, export and permission change</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Local-first storage — you decide if data ever leaves the premises</li>
+          </ul>
+        </div>
+        <div>
+          <div class="imgslot imgslot--4x3">
+            <img src="assets/img/security.jpg" alt="A server cabinet inside a clinic office">
+            <div class="imgslot-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg>
+              <b>Photo: on-premise hardware</b>
+              <small>A small server, NAS or a desktop PC in an office — the point is "this lives in your building". Cool tones suit this section.</small>
+              <code>security.jpg · 1400×1050</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="card card--pad-sm" data-reveal><h4>Standard user</h4><p style="font-size:.92rem">Sees stock levels and can record movement. No financials, no user admin.</p></div>
+        <div class="card card--pad-sm" data-reveal data-d="1"><h4>Staff</h4><p style="font-size:.92rem">Adds and adjusts inventory, runs counts, uploads data files.</p></div>
+        <div class="card card--pad-sm" data-reveal data-d="2"><h4>Manager</h4><p style="font-size:.92rem">Everything above plus finances, forecasting and cross-site comparison.</p></div>
+        <div class="card card--pad-sm" data-reveal data-d="3"><h4>Administrator</h4><p style="font-size:.92rem">User management, permissions, backups, integrations and the audit history.</p></div>
+      </div>
+
+      <p class="form-note" style="margin-top:22px;max-width:70ch">Regnum provides the controls; how they map to your regulatory obligations is a decision for you and your advisors. We are happy to walk a compliance officer through the architecture.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--sand">
+  <div class="wrap">
+    <div class="head head--center" data-reveal>
+      <h2>Want to see any of this on your own data?</h2>
+      <p class="lede">A walkthrough takes about thirty minutes and uses a copy of your own file, not a demo dataset.</p>
+      <div class="btn-row btn-row--center" style="margin-top:26px">
+        <a class="btn btn-primary btn-lg" href="#" data-open-waitlist>Request a walkthrough <span class="arrow">→</span></a>
+        <a class="btn btn-ghost btn-lg" href="how-it-works.html">See the setup steps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/img/logo.png" alt=""><span>Regnum Personia<small>Clinical Operations</small></span></a>
+        <p>Inventory, finance and forecasting for clinics and pharmacies — built to run on the hardware you already own.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#values">Our principles</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#" data-open-waitlist>Join the beta</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:hello@regnum.co">hello@regnum.co</a></li>
+          <li><a href="mailto:support@regnum.co">support@regnum.co</a></li>
+          <li><a href="mailto:legal@regnum.co">legal@regnum.co</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span data-year>2026</span> Regnum Personia. All rights reserved.</span>
+      <span>Built for clinics that would rather not fight their software.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Demo request / beta modal -->
+<div class="modal" id="waitlist" role="dialog" aria-modal="true" aria-labelledby="wlTitle">
+  <div class="modal-box" style="position:relative">
+    <button class="icon-btn modal-x" type="button" data-close-modal aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <span class="eyebrow">Early access</span>
+    <h3 id="wlTitle" style="font-size:1.55rem">See it on your own numbers</h3>
+    <p style="font-size:.96rem">Tell us a little about your site and we'll set up a walkthrough with a copy loaded from your own data — not a canned demo.</p>
+    <form data-validate data-done="Request received — we'll reply within two working days.">
+      <div class="form-grid">
+        <div class="field field--full">
+          <label for="wlName">Your name</label>
+          <input id="wlName" name="name" type="text" required autocomplete="name" placeholder="Jane Mokoena">
+          <span class="msg"></span>
+        </div>
+        <div class="field field--full">
+          <label for="wlEmail">Work email</label>
+          <input id="wlEmail" name="email" type="email" required autocomplete="email" placeholder="jane@clinic.co.za">
+          <span class="msg"></span>
+        </div>
+        <div class="field">
+          <label for="wlOrg">Practice or pharmacy</label>
+          <input id="wlOrg" name="org" type="text" required placeholder="Riverside Clinic">
+          <span class="msg"></span>
+        </div>
+        <div class="field">
+          <label for="wlSize">Sites</label>
+          <select id="wlSize" name="sites">
+            <option>One site</option>
+            <option>2–5 sites</option>
+            <option>6–20 sites</option>
+            <option>More than 20</option>
+          </select>
+          <span class="msg"></span>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:20px">
+        <button class="btn btn-primary" type="submit">Request the walkthrough</button>
+        <span class="form-note">No card, no commitment.</span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<button class="totop" type="button" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!-- title:Regnum Personia — clinical inventory, finance and forecasting|desc:Regnum Personia gives clinics and pharmacies one place to run stock, money and forecasting — installed on your own machine, no monthly cloud bill. -->
+
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow" data-reveal>
+          <span class="pill-dot green"></span> In early access · 2026
+        </span>
+        <h1 data-reveal data-d="1">Your clinic already has the data.<br><span class="grad">Regnum makes it answer back.</span></h1>
+        <p class="lede" data-reveal data-d="2">
+          Stock, expiry, spend and demand live in different spreadsheets and nobody has time to reconcile them.
+          Regnum Personia pulls them into one workspace that runs on the computer you already own — and tells you
+          what is about to go wrong while you can still do something about it.
+        </p>
+        <div class="btn-row" data-reveal data-d="3">
+          <a class="btn btn-primary btn-lg" href="#" data-open-waitlist>Request a walkthrough <span class="arrow">→</span></a>
+          <a class="btn btn-ghost btn-lg" href="how-it-works.html">See how it works</a>
+        </div>
+        <div class="hero-note" data-reveal data-d="4">
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Runs offline on your own hardware</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Your data never leaves the building</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Import from the spreadsheets you have</span>
+        </div>
+      </div>
+
+      <!-- live-feeling product mock -->
+      <div data-reveal data-d="2">
+        <div class="mock">
+          <div class="mock-bar">
+            <span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span>
+            <span class="mock-title">regnum · dashboard</span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-kpis">
+              <div class="kpi">
+                <div class="kpi-label">Stock value</div>
+                <div class="kpi-val">R <span data-count="284.6">0</span>k</div>
+                <div class="kpi-delta up">▲ 4.2% vs last month</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">Expiring ≤30d</div>
+                <div class="kpi-val"><span data-count="14">0</span> items</div>
+                <div class="kpi-delta warn">9 still moving</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">Below reorder</div>
+                <div class="kpi-val"><span data-count="6">0</span> lines</div>
+                <div class="kpi-delta down">▼ 2 since Monday</div>
+              </div>
+            </div>
+
+            <div class="mock-chart">
+              <div class="mock-chart-head">
+                <b>Consumption &amp; forecast</b><span>12 weeks · dashed = predicted</span>
+              </div>
+              <svg class="spark" viewBox="0 0 320 80" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="gradA" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--brand)" stop-opacity=".28"/>
+                    <stop offset="100%" stop-color="var(--brand)" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path class="area" d="M0,58 L26,50 L52,56 L78,40 L104,46 L130,30 L156,36 L182,24 L208,30 L215,28 L215,80 L0,80 Z"/>
+                <path class="line" d="M0,58 L26,50 L52,56 L78,40 L104,46 L130,30 L156,36 L182,24 L208,30 L215,28"/>
+                <path class="fc" d="M215,28 L242,22 L268,26 L294,16 L320,20"/>
+              </svg>
+            </div>
+
+            <div class="alert-row"><span class="pill-dot red"></span><b>Amoxicillin 500mg</b> — 11 days of cover left <span>reorder</span></div>
+            <div class="alert-row"><span class="pill-dot amber"></span><b>Batch #4471</b> — expires in 26 days, still moving <span>redistribute</span></div>
+            <div class="alert-row"><span class="pill-dot green"></span><b>Gloves, nitrile M</b> — supply healthy <span>ok</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROBLEM ======================= -->
+<section class="section section--sand">
+  <div class="wrap">
+    <div class="head head--center" data-reveal>
+      <span class="eyebrow eyebrow--clay">The everyday reality</span>
+      <h2>Nothing is broken. Everything is just slightly out of sync.</h2>
+      <p class="lede">Most practices are not badly run. They are running four systems that do not speak to each other, and paying for it in small, invisible ways.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card" data-reveal>
+        <div class="ico ico--clay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+        <h3>Stock you find out about late</h3>
+        <p>The shortage is discovered at the counter, and the expiry is discovered in the bin. Both were visible in the data weeks earlier.</p>
+      </div>
+      <div class="card" data-reveal data-d="1">
+        <div class="ico ico--clay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div>
+        <h3>Spreadsheets that drift apart</h3>
+        <p>One file for stock, one for orders, one the accountant likes. Every month someone spends a day making them agree with each other.</p>
+      </div>
+      <div class="card" data-reveal data-d="2">
+        <div class="ico ico--clay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Reporting that arrives too late to act on</h3>
+        <p>By the time the month-end pack is ready, the decision it was meant to inform was made three weeks ago on a hunch.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:32px;max-width:70ch" data-reveal>
+      <b>None of this needs a bigger team.</b> It needs the numbers you already collect to be in one place, kept current, and willing to answer a question in plain language.
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WHAT IT DOES ======================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="head head--center" data-reveal>
+      <span class="eyebrow">What Regnum does</span>
+      <h2>One workspace, nine rooms</h2>
+      <p class="lede">Each part of the app answers a question somebody in the practice asks every week.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card" data-reveal>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div>
+        <h3>Dashboard</h3>
+        <p>The five things worth knowing before the doors open, on one screen, refreshed live.</p>
+      </div>
+      <div class="card" data-reveal data-d="1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8"/><rect x="2" y="3" width="20" height="5" rx="1.5"/><path d="M10 12h4"/></svg></div>
+        <h3>Inventory</h3>
+        <p>Batches, expiry dates, reorder levels and movement history — searchable, filterable, and honest about what has not moved.</p>
+      </div>
+      <div class="card" data-reveal data-d="2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5.5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Finances</h3>
+        <p>Spend, margin and revenue by period, with exports your bookkeeper can open without a conversion step.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="ico ico--teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 1 4 4v1a4 4 0 0 1 0 8v1a4 4 0 0 1-8 0v-1a4 4 0 0 1 0-8V7a4 4 0 0 1 4-4z"/><path d="M12 8v8"/></svg></div>
+        <h3>AI insights</h3>
+        <p>Demand forecasts, expiry-risk scoring, anomaly flags and refill suggestions — each one showing its working.</p>
+      </div>
+      <div class="card" data-reveal data-d="1">
+        <div class="ico ico--teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5-5 5 5M12 5v13"/></svg></div>
+        <h3>Data upload</h3>
+        <p>Drop in the CSV or Excel file you already keep. Regnum maps the columns, flags the odd rows, and keeps the history.</p>
+      </div>
+      <div class="card" data-reveal data-d="2">
+        <div class="ico ico--teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9.5" r="2.6"/><path d="M15 20a5.6 5.6 0 0 1 6.5-5.4"/></svg></div>
+        <h3>Users &amp; roles</h3>
+        <p>Four permission levels, so a locum sees stock and a manager sees margins. Every action is logged.</p>
+      </div>
+    </div>
+
+    <div class="btn-row btn-row--center" style="margin-top:44px" data-reveal>
+      <a class="btn btn-ghost" href="features.html">All features in detail <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INTERACTIVE DEMO ======================= -->
+<section class="section section--soft">
+  <div class="wrap">
+    <div class="head head--center" data-reveal>
+      <span class="eyebrow eyebrow--teal">Try it here</span>
+      <h2>Ask your stock a question</h2>
+      <p class="lede">Regnum takes plain-language questions and answers them from your own records. Pick one below to see the shape of an answer.</p>
+    </div>
+
+    <div class="demo" style="max-width:820px;margin:0 auto" data-reveal>
+      <div class="demo-head">
+        <div class="ico ico--teal" style="width:38px;height:38px;margin:0;border-radius:11px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4L3 21l1.1-4.6A8.4 8.4 0 1 1 21 11.5z"/></svg></div>
+        <b>Natural-language query</b>
+        <span class="live"><span class="pill-dot green"></span> sample data</span>
+      </div>
+
+      <div class="chiprow">
+        <button class="qchip" data-q="q1" type="button">What's expiring soon?</button>
+        <button class="qchip" data-q="q2" type="button">Where is money sitting idle?</button>
+        <button class="qchip" data-q="q3" type="button">Which days are busiest?</button>
+        <button class="qchip" data-q="q4" type="button">What will run out next?</button>
+        <button class="qchip" data-q="q5" type="button">Which site spends most?</button>
+      </div>
+
+      <div class="answer" id="askAnswer" aria-live="polite">
+        <div class="answer-t"></div>
+        <div class="answer-s"></div>
+        <div class="answer-m"></div>
+      </div>
+
+      <p class="form-note" style="margin:16px 0 0">Figures above are illustrative sample data. In the app the same question runs against your own records.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SIMULATOR ======================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow">Forecasting, not guessing</span>
+        <h2>Move two dials and watch the risk move</h2>
+        <p class="lede">A reorder level fixed at "30 units" is a guess frozen in time. Regnum recalculates cover from actual consumption and your real lead times — so the alert arrives when there is still time to place an order.</p>
+        <ul class="ticklist" style="margin-top:24px">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Adaptive reorder points that follow the season</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Expiry risk scored per batch, not per product</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Anomaly flags when consumption stops looking like itself</li>
+        </ul>
+      </div>
+
+      <div class="demo" id="sim" data-reveal data-d="1">
+        <div class="demo-head"><b>Eight-week cover simulator</b><span class="live"><span class="pill-dot green"></span> interactive</span></div>
+        <div class="slider-row">
+          <label for="simDemand">Demand vs. baseline</label>
+          <input type="range" id="simDemand" min="40" max="180" value="100">
+          <span class="slider-val" id="simDemandV">100%</span>
+        </div>
+        <div class="slider-row">
+          <label for="simLead">Supplier lead time</label>
+          <input type="range" id="simLead" min="1" max="21" value="7">
+          <span class="slider-val" id="simLeadV">7 days</span>
+        </div>
+
+        <div class="bars">
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </div>
+        <div class="barlabels">
+          <span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span>
+        </div>
+
+        <div class="readout">
+          <div><b id="simRisk">0</b><small>Weeks at risk</small></div>
+          <div><b id="simCover">0d</b><small>Cover on hand</small></div>
+          <div><b id="simWaste">0%</b><small>Over-stock risk</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= IMAGE BAND ======================= -->
+<section class="section section--tight section--sand">
+  <div class="wrap">
+    <div class="split">
+      <div data-reveal>
+        <div class="imgslot imgslot--4x3">
+          <img src="assets/img/home-dispensary.jpg" alt="A clinic dispensary counter with organised medicine shelving">
+          <div class="imgslot-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg>
+            <b>Photo: the dispensary</b>
+            <small>A tidy clinic or pharmacy dispensary — shelving, labelled bins, a person reaching for stock. Warm daylight, no faces needed.</small>
+            <code>home-dispensary.jpg · 1600×1200</code>
+          </div>
+        </div>
+      </div>
+      <div data-reveal data-d="1">
+        <span class="eyebrow eyebrow--clay">Built around people, not modules</span>
+        <h2>Made for the person holding the clipboard</h2>
+        <p class="lede">Regnum was designed watching how stock actually gets counted: standing up, mid-shift, with a queue forming. That is why the counting screens are big-buttoned, the searches are forgiving, and nothing important hides three menus deep.</p>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn-ghost" href="about.html">Read our story <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= STATS ======================= -->
+<section class="section section--ink">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="eyebrow">Where the product stands today</span>
+      <h2>Honest numbers about the build</h2>
+      <p class="lede">We are in early access. Rather than quote customer counts we do not have yet, here is what actually exists.</p>
+    </div>
+    <div class="stats">
+      <div class="stat" data-reveal>
+        <div class="stat-num"><span data-count="9">0</span></div>
+        <div class="stat-lab">Working modules, from dashboard to user management</div>
+      </div>
+      <div class="stat" data-reveal data-d="1">
+        <div class="stat-num"><span data-count="35">0</span><span class="u">+</span></div>
+        <div class="stat-lab">Database tables behind inventory, finance and audit</div>
+      </div>
+      <div class="stat" data-reveal data-d="2">
+        <div class="stat-num"><span data-count="4">0</span></div>
+        <div class="stat-lab">Permission roles, from standard user to administrator</div>
+      </div>
+      <div class="stat" data-reveal data-d="3">
+        <div class="stat-num">R<span data-count="0">0</span></div>
+        <div class="stat-lab">Monthly cloud fees — it runs on your own machine</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CTA ======================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="cta" data-reveal>
+      <div style="max-width:56ch">
+        <span class="eyebrow">Early access</span>
+        <h2>We would rather show you than tell you</h2>
+        <p class="lede" style="color:#b3c0da">Send us a sample of the spreadsheet you keep today. We will load it into a copy of Regnum and walk you through what it says about your own practice — no obligation, no card.</p>
+        <div class="btn-row" style="margin-top:26px">
+          <a class="btn btn-light btn-lg" href="#" data-open-waitlist>Request a walkthrough <span class="arrow">→</span></a>
+          <a class="btn btn-outline-light btn-lg" href="contact.html">Ask a question first</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
