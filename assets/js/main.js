@@ -339,8 +339,73 @@
   }
 
   /* ---------- Forms ---------- */
-  /* No backend is wired up yet — these validate and confirm locally.
-     Point the form at your endpoint (or a service like Formspree) to go live. */
+  /* Where website form submissions go.
+     Delivery runs through Formspree, which emails every submission to CONTACT_EMAIL.
+
+     TO GO LIVE (one step):
+       1. Sign up at https://formspree.io using CONTACT_EMAIL below and confirm the
+          address from the email Formspree sends you.
+       2. Create a form there and copy its ID — the code at the end of the endpoint
+          URL, e.g. https://formspree.io/f/xayzbqvw  ->  'xayzbqvw'
+       3. Paste that ID into FORMSPREE_ID below and re-upload this file.
+
+     Until FORMSPREE_ID is filled in, submitting opens the visitor's own email app
+     with the message pre-filled and addressed to CONTACT_EMAIL, so nothing is lost. */
+  const CONTACT_EMAIL = 'kevin.lengwadibe@regnumpesonia.com';
+  const FORMSPREE_ID  = '';
+
+  const FIELD_LABELS = {
+    name: 'Name', email: 'Email', org: 'Practice', topic: 'Topic',
+    sites: 'Sites', message: 'Message', role: 'Role', phone: 'Phone'
+  };
+
+  function formSubject(form, data) {
+    if (data.get('topic')) return 'Website enquiry: ' + data.get('topic');
+    if (form.closest('.modal')) return 'Early access request — Regnum Personia website';
+    return 'Message from the Regnum Personia website';
+  }
+
+  function formBody(data) {
+    const lines = [];
+    data.forEach((value, key) => {
+      if (key.charAt(0) === '_' || !String(value).trim()) return;
+      lines.push((FIELD_LABELS[key] || key) + ': ' + value);
+    });
+    return lines.join('\n');
+  }
+
+  /* No endpoint configured yet — hand the message to the visitor's mail client. */
+  function mailtoFallback(form, data) {
+    const href = 'mailto:' + CONTACT_EMAIL +
+      '?subject=' + encodeURIComponent(formSubject(form, data)) +
+      '&body=' + encodeURIComponent(formBody(data));
+    window.location.href = href;
+  }
+
+  async function sendForm(form) {
+    const data = new FormData(form);
+    data.append('_subject', formSubject(form, data));
+    const replyTo = data.get('email');
+    if (replyTo) data.append('_replyto', replyTo);
+
+    if (!FORMSPREE_ID) { mailtoFallback(form, data); return 'mailto'; }
+
+    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' }
+    });
+    if (!res.ok) {
+      let detail = '';
+      try {
+        const json = await res.json();
+        detail = (json.errors || []).map(e => e.message).join(' ');
+      } catch (_) { /* non-JSON error body */ }
+      throw new Error(detail || ('Formspree responded ' + res.status));
+    }
+    return 'sent';
+  }
+
   function initForms() {
     $$('form[data-validate]').forEach(form => {
       const fields = $$('.field', form);
@@ -364,7 +429,7 @@
         input.addEventListener('blur', () => check(f));
         input.addEventListener('input', () => { if (f.classList.contains('err')) check(f); });
       });
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const ok = fields.map(check).every(Boolean);
         if (!ok) {
@@ -375,14 +440,23 @@
         const btn = $('button[type=submit]', form);
         const label = btn ? btn.textContent : '';
         if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-        setTimeout(() => {
-          if (btn) { btn.disabled = false; btn.textContent = label; }
+        try {
+          const outcome = await sendForm(form);
           form.reset();
           fields.forEach(f => f.classList.remove('ok', 'err'));
-          toast(form.dataset.done || 'Thanks — we’ll be in touch shortly.');
+          if (outcome === 'mailto') {
+            toast('Opening your email app — press send there and it reaches us.');
+          } else {
+            toast(form.dataset.done || 'Thanks — we’ll be in touch shortly.');
+          }
           const modal = form.closest('.modal');
           if (modal && modal._close) modal._close();
-        }, 900);
+        } catch (err) {
+          console.error('Form submission failed:', err);
+          toast('That didn’t send. Please email ' + CONTACT_EMAIL + ' directly.');
+        } finally {
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+        }
       });
     });
   }
