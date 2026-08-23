@@ -50,13 +50,15 @@ and inline form validation.
 ## Before it goes live
 
 1. **Images** — follow `IMAGE-GUIDE.md`. Until then every slot shows a dashed brief.
-2. **Wire the forms.** Both forms currently validate and show a confirmation, but nothing is
-   sent. The quickest fix is [Formspree](https://formspree.io) or
-   [Netlify Forms](https://docs.netlify.com/forms/setup/): give the `<form>` an `action` and
-   `method="POST"`, then delete the `data-validate` attribute (or keep it and remove the
-   `e.preventDefault()` branch in `initForms` in `main.js`).
-3. **Check the email addresses.** `hello@`, `support@` and `legal@regnum.co` appear in the
-   footer and on the contact page — change them if they're not live.
+2. **Finish wiring the forms.** Both forms now submit for real through
+   [Formspree](https://formspree.io), which emails each submission to the contact address.
+   One step is left: sign up at Formspree with `kevin.lengwadibe@regnumpesonia.com`, confirm
+   the address, create a form, and paste its ID into `FORMSPREE_ID` at the top of the
+   `Forms` section in `assets/js/main.js`. Until that constant is filled in, submitting
+   opens the visitor's own mail app pre-addressed to the same inbox, so nothing is lost.
+3. **Confirm the contact address is live.** `kevin.lengwadibe@regnumpesonia.com` is the only
+   address on the site — it appears in every footer, on the contact page, and in `main.js`.
+   Formspree will not forward anything until that mailbox has confirmed the sign-up.
 4. **Review the claims.** Numbers on the home page ("9 modules", "35+ tables", "4 roles")
    and every roadmap status were written from the current state of the app. Update them
    when the app moves.
