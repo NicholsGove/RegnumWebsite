@@ -17,7 +17,7 @@
         <li class="step" tabindex="0" role="tab"><span class="step-n">1</span><b>Install</b><small>One installer, one machine</small></li>
         <li class="step" tabindex="0" role="tab"><span class="step-n">2</span><b>Set up your practice</b><small>Sites, users, roles</small></li>
         <li class="step" tabindex="0" role="tab"><span class="step-n">3</span><b>Bring your data in</b><small>Import and check</small></li>
-        <li class="step" tabindex="0" role="tab"><span class="step-n">4</span><b>Let it learn</b><small>Baselines and forecasts</small></li>
+        <li class="step" tabindex="0" role="tab"><span class="step-n">4</span><b>Let it learn</b><small>Patterns and forecasts</small></li>
         <li class="step" tabindex="0" role="tab"><span class="step-n">5</span><b>Run your week</b><small>Alerts, orders, reports</small></li>
       </ol>
 
@@ -57,7 +57,7 @@
           <div class="card card--flat">
             <span class="eyebrow">Step three</span>
             <h2 style="font-size:1.75rem">Import the file you already keep</h2>
-            <p>Upload your stock list and, if you have it, your consumption history. Regnum reads the columns, shows you its interpretation, and asks you to confirm the mapping once. Rows it cannot parse are listed individually with the reason — you fix them in place rather than starting over.</p>
+            <p>Upload your stock list and whatever else you keep: purchases, suppliers, batch numbers and expiry dates, consumption history, stock received, adjustments, costs, and lead times if you record them. Regnum reads the columns, shows you its interpretation, and asks you to confirm the mapping once. Rows it cannot parse are listed individually with the reason — you fix them in place rather than starting over. Nothing about how you currently record stock has to change.</p>
             <div class="grid grid-3" style="margin:22px 0">
               <div class="card card--pad-sm"><h4 style="font-size:.92rem">Accepts</h4><p style="font-size:.88rem;margin:0">CSV, XLSX, and exports from most dispensing systems</p></div>
               <div class="card card--pad-sm"><h4 style="font-size:.92rem">Reports</h4><p style="font-size:.88rem;margin:0">Rows imported, rows skipped, duplicates merged</p></div>
@@ -71,13 +71,16 @@
         <div class="step-panel">
           <div class="card card--flat">
             <span class="eyebrow eyebrow--teal">Step four</span>
-            <h2 style="font-size:1.75rem">Let the models find your baseline</h2>
+            <h2 style="font-size:1.75rem">Let the models learn your normal</h2>
             <p>With history loaded, Regnum builds a consumption profile per item — the ordinary week, the seasonal shape, the items that move in bursts. From that it derives reorder points, expiry risk and the first forecasts. If your history is short, it says so and starts conservative.</p>
             <ul class="ticklist">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Twelve months of history gives a strong baseline; three months gives a usable one</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Twelve months of history gives a strong profile; three months gives a usable one</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Forecasts refresh as new movement is recorded — no monthly rebuild</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> You can override any suggestion, and the override is remembered</li>
             </ul>
+            <div class="note" style="margin-top:22px">
+              <b>We will suggest a count before you trust any of it.</b> Forecasts inherit whatever error is already in your records, so the first thing we recommend is physically counting a sample of the medicines that matter and comparing it to the system. It is the same method we run in the <a href="pilot.html#build-2">clinic pilot</a>, and it takes an afternoon.
+            </div>
             <div class="btn-row" style="margin-top:20px"><button class="btn btn-ghost btn-sm" type="button" data-step-next>Next step <span class="arrow">→</span></button></div>
           </div>
         </div>
@@ -132,7 +135,7 @@
         </div>
         <div class="acc-item">
           <button class="acc-q" type="button" aria-expanded="false">How long until it is actually useful?<span class="acc-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="acc-a"><div class="acc-a-in"><p>Stock visibility and alerts work from the first import. Forecasting is useful within days if you brought history with you, and sharpens over the first two or three months as live movement accumulates.</p></div></div>
+          <div class="acc-a"><div class="acc-a-in"><p>Stock visibility and alerts work from the first import. Forecasting starts producing numbers within days if you brought history with you, and sharpens over the first two or three months as live movement accumulates. How accurate those forecasts are is a question we are answering with measurement rather than assertion — see <a href="pilot.html#build-3">how we score them</a>.</p></div></div>
         </div>
         <div class="acc-item">
           <button class="acc-q" type="button" aria-expanded="false">What does it cost?<span class="acc-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
