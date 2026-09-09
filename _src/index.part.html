@@ -6,22 +6,23 @@
     <div class="hero-grid">
       <div>
         <span class="eyebrow" data-reveal>
-          <span class="pill-dot green"></span> In early access · 2026
+          <span class="pill-dot green"></span> In a working clinic · pilot 2026
         </span>
         <h1 data-reveal data-d="1">Your clinic already has the data.<br><span class="grad">Regnum makes it answer back.</span></h1>
         <p class="lede" data-reveal data-d="2">
           Stock, expiry, spend and demand live in different spreadsheets and nobody has time to reconcile them.
-          Regnum Personia pulls them into one workspace that runs on the computer you already own — and tells you
-          what is about to go wrong while you can still do something about it.
+          Regnum Personia sits on top of the records you already keep — no migration, no change to how the clinic
+          runs — and tells you what is about to go wrong while there is still time to do something about it.
+          It is being proven this way now, in a working clinic, and measured the whole time.
         </p>
         <div class="btn-row" data-reveal data-d="3">
           <a class="btn btn-primary btn-lg" href="#" data-open-waitlist>Request a walkthrough <span class="arrow">→</span></a>
-          <a class="btn btn-ghost btn-lg" href="how-it-works.html">See how it works</a>
+          <a class="btn btn-ghost btn-lg" href="pilot.html">How we are proving it</a>
         </div>
         <div class="hero-note" data-reveal data-d="4">
           <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Runs offline on your own hardware</span>
           <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Your data never leaves the building</span>
-          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Import from the spreadsheets you have</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sits on top of the records you already keep</span>
         </div>
       </div>
 
@@ -267,13 +268,61 @@
   </div>
 </section>
 
+<!-- ======================= THE PROOF PROGRAMME ======================= -->
+<section class="section section--soft">
+  <div class="wrap">
+    <div class="head head--center" data-reveal>
+      <span class="eyebrow eyebrow--teal">How we are proving it</span>
+      <h2>Six builds, in a real clinic, in this order</h2>
+      <p class="lede">Anyone can demonstrate software on invented data. Regnum is being built against a working clinic's own records — and measured before it is allowed to predict anything.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card" data-reveal>
+        <span class="eyebrow">Build 01</span>
+        <h3 style="margin-top:10px">Take the data as it is</h3>
+        <p>Inventory, purchases, suppliers, batches, expiry, consumption, receipts, adjustments, costs and lead times — in the format the clinic already uses. CSV today, a database connection tomorrow.</p>
+      </div>
+      <div class="card" data-reveal data-d="1">
+        <span class="eyebrow">Build 02</span>
+        <h3 style="margin-top:10px">Establish truth first</h3>
+        <p>Count the shelf, compare it to the system, record the variance. System 140, counted 126, variance &minus;14. That is a baseline, and without one no improvement can ever be proven.</p>
+      </div>
+      <div class="card" data-reveal data-d="2">
+        <span class="eyebrow">Build 03</span>
+        <h3 style="margin-top:10px">Forecast, then mark the forecast</h3>
+        <p>Every prediction is stored with a due date and settled against the real count when it arrives. Accuracy becomes a measured figure rather than a claim.</p>
+      </div>
+      <div class="card" data-reveal>
+        <span class="eyebrow">Build 04</span>
+        <h3 style="margin-top:10px">Predict wastage, not expiry dates</h3>
+        <p>Not "expires December" — 320 units, 83 days, 190 expected to move, 130 units of excess, and what that excess is worth.</p>
+      </div>
+      <div class="card" data-reveal data-d="1">
+        <span class="eyebrow">Build 05</span>
+        <h3 style="margin-top:10px">Connect it to money</h3>
+        <p>What is tied up in inventory, what is at risk, what emergency ordering cost this quarter, and where the overstock is. Stock and finance from one set of records.</p>
+      </div>
+      <div class="card" data-reveal data-d="2">
+        <span class="eyebrow">Build 06</span>
+        <h3 style="margin-top:10px">Flag the odd day</h3>
+        <p>Normal is 20&ndash;30 a day; Tuesday moved 94. Regnum says review recommended, and deliberately says nothing about why. That judgement belongs to a person.</p>
+      </div>
+    </div>
+
+    <div class="btn-row btn-row--center" style="margin-top:44px" data-reveal>
+      <a class="btn btn-ghost" href="pilot.html">The pilot method and scorecard <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= STATS ======================= -->
 <section class="section section--ink">
   <div class="wrap">
     <div class="head" data-reveal>
       <span class="eyebrow">Where the product stands today</span>
       <h2>Honest numbers about the build</h2>
-      <p class="lede">We are in early access. Rather than quote customer counts we do not have yet, here is what actually exists.</p>
+      <p class="lede">We are in pilot. Rather than quote accuracy figures we have not yet earned, here is what actually exists — the performance numbers go up on the scorecard once the clinic has produced them.</p>
     </div>
     <div class="stats">
       <div class="stat" data-reveal>
@@ -292,6 +341,9 @@
         <div class="stat-num">R<span data-count="0">0</span></div>
         <div class="stat-lab">Monthly cloud fees — it runs on your own machine</div>
       </div>
+    </div>
+    <div class="btn-row" style="margin-top:40px" data-reveal>
+      <a class="btn btn-light" href="pilot.html">See the pilot scorecard <span class="arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -312,3 +364,4 @@
     </div>
   </div>
 </section>
+

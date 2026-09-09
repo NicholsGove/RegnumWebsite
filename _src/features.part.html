@@ -104,11 +104,12 @@
         <div>
           <span class="eyebrow eyebrow--teal">Intelligence</span>
           <h2>Forecasting that shows its working</h2>
-          <p class="lede">Regnum's models are deliberately legible. Each output carries the window it looked at, the confidence it has, and the records it drew on — so a manager can sanity-check it in ten seconds.</p>
+          <p class="lede">Regnum's models are deliberately legible, and deliberately scored. Each output carries the window it looked at, the confidence it has and the records it drew on — and every forecast is stored with a due date so it can be settled against what actually happened.</p>
           <ul class="ticklist" style="margin-top:22px">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Demand forecasting</b> per item, adapting to season and trend</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Expiry risk</b> scored per batch against real movement, not shelf life alone</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Anomaly detection</b> for consumption that stops looking like itself</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Demand forecasting</b> per item — current stock, average consumption, days of cover, supplier lead time and the action window that falls out of them</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Measured accuracy</b> — predictions are settled against the real count on the due date, and the error is kept</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Wastage projection</b> per batch — units that will still be on the shelf at expiry, priced from your own costs</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Anomaly detection</b> against each item's own history — it flags the day and leaves the interpretation to a person</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Refill suggestions</b> with quantity, timing and the reasoning behind both</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Plain-language queries</b> — ask a question, get a number and its source</li>
           </ul>
@@ -132,12 +133,12 @@
           <p style="font-size:.92rem">Minimum levels that move with the season instead of sitting at whatever was typed in during setup.</p>
         </div>
         <div class="card card--pad-sm" data-reveal data-d="1">
-          <h4>Swarm &amp; ensemble forecasts</h4>
-          <p style="font-size:.92rem">Several models run in parallel and disagreement between them is surfaced rather than averaged away.</p>
+          <h4>Forecast accuracy ledger</h4>
+          <p style="font-size:.92rem">Predicted 80 units in 14 days, actual 84. Every forecast is settled and scored, so accuracy is a figure you can audit rather than a promise.</p>
         </div>
         <div class="card card--pad-sm" data-reveal data-d="2">
-          <h4>Revenue projection</h4>
-          <p style="font-size:.92rem">Expected income for the period ahead, built from booked activity and historical conversion.</p>
+          <h4>Redistribution signals</h4>
+          <p style="font-size:.92rem">Where more than one site is running, projected excess at one is matched against projected shortfall at another before either date arrives.</p>
         </div>
         <div class="card card--pad-sm" data-reveal data-d="3">
           <h4>Assistant</h4>
@@ -146,7 +147,7 @@
       </div>
 
       <div class="note" style="margin-top:30px">
-        <b>On confidence.</b> Where a forecast is thin — a new item, a short history, an erratic supplier — Regnum says so instead of producing a precise-looking number it cannot stand behind.
+        <b>On confidence.</b> Where a forecast is thin — a new item, a short history, an erratic supplier — Regnum says so instead of producing a precise-looking number it cannot stand behind. And where it was simply wrong, the miss stays in the ledger. See <a href="pilot.html#build-3">how accuracy is being measured</a> in the clinic pilot.
       </div>
     </div>
 
@@ -182,6 +183,11 @@
         <table class="matrix">
           <thead><tr><th>Question</th><th>Where it lives</th><th>Refreshes</th></tr></thead>
           <tbody>
+            <tr><td>How much money is sitting in medication inventory right now?</td><td>Finances → inventory value</td><td class="yes">Live</td></tr>
+            <tr><td>How much of that is at risk of expiring?</td><td>Finances → wastage exposure</td><td class="yes">Live</td></tr>
+            <tr><td>Which medicines are tying up the most capital?</td><td>Finances → capital by line</td><td class="yes">Live</td></tr>
+            <tr><td>What did emergency procurement cost us this quarter?</td><td>Finances → emergency orders</td><td class="yes">Live</td></tr>
+            <tr><td>Which supplier price changes affected our purchasing?</td><td>Suppliers → price history</td><td class="yes">Live</td></tr>
             <tr><td>What did we spend on consumables this quarter?</td><td>Finances → spend by category</td><td class="yes">Live</td></tr>
             <tr><td>How much stock value has not moved in 90 days?</td><td>Finances → idle stock</td><td class="yes">Live</td></tr>
             <tr><td>What did expiry cost us last year?</td><td>Finances → write-offs</td><td class="yes">Live</td></tr>
@@ -201,6 +207,7 @@
           <p class="lede">The import engine is built on the assumption that your file is imperfect — because it is, and so is everyone else's.</p>
           <ul class="ticklist" style="margin-top:22px">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CSV and Excel upload with column mapping you confirm once</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> A repeatable ingestion path — spreadsheets today, a scheduled database pull or API feed as the site is ready for it</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> A row-level report of what imported, what did not, and why</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Full import history — every upload is versioned and reversible</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Scheduled backups, with a restore you can actually test</li>
@@ -218,6 +225,10 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="note" style="margin-bottom:20px">
+        <b>The design assumption:</b> Regnum sits on top of an existing operational environment rather than replacing it. Nobody is asked to change how they record stock in order to be measured — which is what makes the same approach viable over a larger system later.
       </div>
 
       <div class="note">
@@ -278,3 +289,4 @@
     </div>
   </div>
 </section>
+

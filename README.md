@@ -1,7 +1,7 @@
 # Regnum Personia — website
 
-A static, self-contained marketing site. No build step, no framework, no npm install.
-Double-click `index.html` and it runs.
+A static, self-contained marketing site. No framework, no npm install.
+Double-click `index.html` and it runs; a small Python script assembles the pages from `_src/`.
 
 ## Pages
 
@@ -11,6 +11,7 @@ Double-click `index.html` and it runs.
 | `about.html` | Story, goal for the app, five principles, team |
 | `features.html` | All modules, in five tabbed groups |
 | `how-it-works.html` | Five-step interactive setup walkthrough + FAQ |
+| `pilot.html` | The clinic pilot — six builds, worked examples and the pilot scorecard |
 | `solutions.html` | Clinic / pharmacy / multi-site group, plus a fit matrix |
 | `roadmap.html` | Filterable timeline (shipped / building / planned / exploring) + vision |
 | `contact.html` | Validated contact form, direct emails, quick answers |
@@ -31,14 +32,14 @@ Website/
 
 ### Editing
 
-Edit the `.html` files directly — they are ordinary, readable HTML.
+**Edit in `_src/`, then run `python _src/build.py`.** Each `*.part.html` holds one page's
+body; `build.py` wraps them all in the shared nav, footer and modal and writes the eight
+flat pages in the root. As of the pilot-page update, `_src/` and the built pages are in
+sync, so this is the single source — editing a built `.html` directly will be overwritten
+the next time anyone builds. Nav and footer changes go in `_src/build.py`.
 
-The `_src/` folder is how they were generated: each `*.part.html` holds one page's body,
-and `build.py` wraps them all in the shared nav, footer and modal. If you change the nav or
-footer, edit `_src/build.py` and run `python _src/build.py` to regenerate all seven pages —
-otherwise you'd be editing the same header seven times. **If you edit the built `.html`
-files directly, do not run `build.py` afterwards; it will overwrite them.** Either work in
-`_src/` or delete it.
+Adding a page: drop a new `*.part.html` in `_src/` (first line must be the
+`<!-- title:… |desc:… -->` comment) and add it to the `NAV` list in `build.py`.
 
 ## Interactions
 

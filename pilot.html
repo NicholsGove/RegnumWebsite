@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The clinic pilot — Regnum Personia</title>
+<meta name="description" content="Regnum Personia is being proven inside a working clinic — real records, real users, real consequences, over real time. Six builds, measured before and after, published as a scorecard.">
+<meta property="og:title" content="The clinic pilot — Regnum Personia">
+<meta property="og:description" content="Regnum Personia is being proven inside a working clinic — real records, real users, real consequences, over real time. Six builds, measured before and after, published as a scorecard.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="scrollbar" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Regnum Personia home">
+      <img src="assets/img/logo.png" alt="">
+      <span>Regnum Personia<small>Clinical Operations</small></span>
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="pilot.html" class="active" aria-current="page">Pilot</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch between light and dark mode">
+        <span class="sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><span class="moon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span>
+      </button>
+      <a class="btn btn-primary btn-sm" href="#" data-open-waitlist>Request a demo</a>
+      <button class="icon-btn burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ======================= HERO ======================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="head head--center" data-reveal>
+      <span class="eyebrow"><span class="pill-dot green"></span> Pilot in progress</span>
+      <h1 style="font-size:clamp(2.1rem,4.4vw,3.4rem)">We would rather be measured than believed.</h1>
+      <p class="lede">Regnum Personia is being run inside a working clinic — its real records, its real staff, real consequences when something runs out, and enough time for the results to mean something. Six builds, in order. Everything measured before we change anything, so that six months from now the improvement is a number instead of an opinion.</p>
+    </div>
+
+    <div class="note" style="max-width:74ch;margin:6px auto 0" data-reveal>
+      <b>What you will not find on this page.</b> Accuracy figures, savings figures or waste-reduction figures. The pilot is establishing its baseline. When there are results, they will appear here with the method and the misses attached — including the medicines where the forecast was wrong.
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WHY A REAL SITE ======================= -->
+<section class="section section--sand">
+  <div class="wrap">
+    <div class="head head--center" data-reveal>
+      <span class="eyebrow eyebrow--clay">Why a working clinic, not a demo</span>
+      <h2>A demo can be made to say anything</h2>
+      <p class="lede">Four things a live site gives you that sample data never will.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card card--pad-sm" data-reveal>
+        <h4>Real operational data</h4>
+        <p style="font-size:.92rem">Records kept by people under pressure — inconsistent units, late entries, the odd blank column. The conditions the software has to survive.</p>
+      </div>
+      <div class="card card--pad-sm" data-reveal data-d="1">
+        <h4>Real users</h4>
+        <p style="font-size:.92rem">Staff who did not choose the software and have a queue waiting. If a screen is awkward, it gets abandoned rather than reported.</p>
+      </div>
+      <div class="card card--pad-sm" data-reveal data-d="2">
+        <h4>Real consequences</h4>
+        <p style="font-size:.92rem">A missed reorder is a patient sent away. That is the only stake that properly disciplines a forecast.</p>
+      </div>
+      <div class="card card--pad-sm" data-reveal data-d="3">
+        <h4>Time</h4>
+        <p style="font-size:.92rem">Seasonality, supplier drift, an outbreak week. None of it shows up in a fortnight, all of it shows up in a year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= THE SIX BUILDS ======================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="head head--center" data-reveal>
+      <span class="eyebrow">The programme</span>
+      <h2>Six builds, in this order</h2>
+      <p class="lede">The order matters more than the list. Prediction before measurement is decoration.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <a class="card" style="color:inherit" href="#build-1" data-reveal>
+        <span class="eyebrow">Build 01</span>
+        <h3 style="margin-top:10px">Ingestion</h3>
+        <p>Take the clinic's information as it already exists, without asking anyone to change how they work.</p>
+      </a>
+      <a class="card" style="color:inherit" href="#build-2" data-reveal data-d="1">
+        <span class="eyebrow">Build 02</span>
+        <h3 style="margin-top:10px">Truth before prediction</h3>
+        <p>Count the shelf. Compare it to the record. Write down the gap. That is the before picture.</p>
+      </a>
+      <a class="card" style="color:inherit" href="#build-3" data-reveal data-d="2">
+        <span class="eyebrow">Build 03</span>
+        <h3 style="margin-top:10px">Forecasting</h3>
+        <p>Predict, wait, then score the prediction against what actually happened. Repeatedly.</p>
+      </a>
+      <a class="card" style="color:inherit" href="#build-4" data-reveal>
+        <span class="eyebrow">Build 04</span>
+        <h3 style="margin-top:10px">Expiry intelligence</h3>
+        <p>Not the expiry date — the quantity that will still be sitting there when it arrives, and what that costs.</p>
+      </a>
+      <a class="card" style="color:inherit" href="#build-5" data-reveal data-d="1">
+        <span class="eyebrow">Build 05</span>
+        <h3 style="margin-top:10px">Financial intelligence</h3>
+        <p>Connect physical stock to operational risk to money, in the language the owner actually thinks in.</p>
+      </a>
+      <a class="card" style="color:inherit" href="#build-6" data-reveal data-d="2">
+        <span class="eyebrow">Build 06</span>
+        <h3 style="margin-top:10px">Anomaly detection</h3>
+        <p>Learn what normal looks like, then point at the days that are not — and say nothing about why.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BUILD 1 ======================= -->
+<section class="section section--soft" id="build-1">
+  <div class="wrap">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow">Build 01 · Ingestion</span>
+        <h2>Sit on top of what is already running</h2>
+        <p class="lede">The first milestone is deliberately unglamorous. Before any intelligence, Regnum has to accept the clinic's existing information — in the shape it already exists — without forcing anyone to change how they operate.</p>
+        <p>That is the strategic point being proven, and it is the one that matters later: Regnum is a layer over an operational environment, not a replacement for it. A facility that cannot afford a migration can still be measured. A national system that already holds the records can still be read.</p>
+        <ul class="ticklist" style="margin-top:22px">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Today:</b> CSV and Excel, mapped once and remembered</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Next:</b> scheduled pulls straight from the source database</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <b>Then:</b> an API contract, so the ingestion is repeatable rather than heroic</li>
+        </ul>
+      </div>
+
+      <div data-reveal data-d="1">
+        <div class="demo">
+          <div class="demo-head">
+            <b>What the pilot ingests</b><span class="live"><span class="pill-dot green"></span> ten sources</span>
+          </div>
+          <div class="tablewrap">
+            <table class="matrix">
+              <thead><tr><th style="min-width:190px">Record</th><th>Why it is needed</th></tr></thead>
+              <tbody>
+                <tr><td>Inventory records</td><td>Current position</td></tr>
+                <tr><td>Purchase records</td><td>What was bought, when</td></tr>
+                <tr><td>Supplier information</td><td>Who, and how reliably</td></tr>
+                <tr><td>Batch numbers</td><td>Risk lives at batch level</td></tr>
+                <tr><td>Expiry dates</td><td>The wastage clock</td></tr>
+                <tr><td>Consumption history</td><td>The basis of every forecast</td></tr>
+                <tr><td>Stock received</td><td>Confirms what arrived</td></tr>
+                <tr><td>Stock adjustments</td><td>Where the truth was corrected</td></tr>
+                <tr><td>Prices and costs</td><td>Turns units into money</td></tr>
+                <tr><td>Supplier lead times</td><td>Turns a forecast into a deadline</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="form-note" style="margin:14px 0 0">Lead times are frequently missing at the start. Regnum reconstructs them from order and receipt dates until the real figures exist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BUILD 2 ======================= -->
+<section class="section" id="build-2">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="eyebrow eyebrow--clay">Build 02 · Establish truth</span>
+      <h2>Measure first. Impress later.</h2>
+      <p class="lede">For the first weeks the software is not trying to be clever. It is establishing whether the records can be trusted at all — by physically counting a sample of meaningful medicines and comparing the shelf to the system.</p>
+    </div>
+
+    <div class="split">
+      <div class="demo" data-reveal>
+        <div class="demo-head"><b>Baseline count · line item</b><span class="live">verification</span></div>
+        <div class="readout" style="margin-top:0">
+          <div><b>140</b><small>System says</small></div>
+          <div><b>126</b><small>Physical count</small></div>
+          <div><b style="color:var(--clay)">−14</b><small>Variance</small></div>
+        </div>
+        <p class="form-note" style="margin:16px 0 0">Repeated across the medicines that matter, this produces one number nobody currently has: baseline inventory accuracy.</p>
+      </div>
+
+      <div data-reveal data-d="1">
+        <h3>What gets written down before anything is improved</h3>
+        <ul class="ticklist" style="margin-top:18px">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stock-outs, and near-stock-outs</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Expired stock, and stock near expiry</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Overstock, and total inventory value</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Emergency orders placed, and what they cost</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Actual supplier lead times, per supplier</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Inventory discrepancies, line by line</li>
+        </ul>
+        <div class="note" style="margin-top:24px">
+          <b>Without this, there is no argument.</b> Six months of improvement is unprovable if nobody recorded the starting position — and a vendor with no baseline can only offer adjectives.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BUILD 3 ======================= -->
+<section class="section section--sand" id="build-3">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="eyebrow">Build 03 · Forecasting</span>
+      <h2>A prediction that is never checked is a marketing claim</h2>
+      <p class="lede">For each meaningful medicine, Regnum states a position, a rate, a deadline and a risk. Then it records what actually happened, and scores itself.</p>
+    </div>
+
+    <div class="split">
+      <div class="demo" data-reveal>
+        <div class="demo-head"><b>Amoxicillin 500mg</b><span class="live"><span class="pill-dot amber"></span> moderate risk</span></div>
+        <div class="tablewrap">
+          <table class="matrix">
+            <tbody>
+              <tr><td>Current stock</td><td class="yes">420 units</td></tr>
+              <tr><td>Average consumption</td><td class="yes">18 / day</td></tr>
+              <tr><td>Estimated days remaining</td><td class="yes">23</td></tr>
+              <tr><td>Supplier lead time</td><td class="yes">14 days</td></tr>
+              <tr><td>Recommended action window</td><td class="yes">9 days</td></tr>
+              <tr><td>Stock-out risk</td><td class="yes">Moderate</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="demo" data-reveal data-d="1">
+        <div class="demo-head"><b>The accuracy ledger</b><span class="live">scored after the fact</span></div>
+        <div class="tablewrap">
+          <table class="matrix">
+            <thead><tr><th>Predicted</th><th>Actual</th><th>Error</th></tr></thead>
+            <tbody>
+              <tr><td>80 units in 14 days</td><td class="yes">84</td><td>+4</td></tr>
+              <tr><td>210 units in 14 days</td><td class="yes">198</td><td>−12</td></tr>
+              <tr><td>45 units in 14 days</td><td class="yes">61</td><td>+16</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="form-note" style="margin:14px 0 0">Illustrative structure, not pilot results. Every forecast Regnum issues is stored with a due date, and settled against the count on that date — the misses included.</p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:56px">
+      <div class="card" data-reveal>
+        <span class="eyebrow eyebrow--clay">What we will not say</span>
+        <h3 style="margin-top:10px">"Our AI predicts shortages."</h3>
+        <p>Unfalsifiable, unremarkable, and indistinguishable from every other pitch in the room.</p>
+      </div>
+      <div class="card" data-reveal data-d="1">
+        <span class="eyebrow eyebrow--teal">What we intend to say</span>
+        <h3 style="margin-top:10px">"Across the clinic pilot, Regnum achieved <span class="mono">X%</span> forecasting accuracy across <span class="mono">Y</span> medicines over <span class="mono">Z</span> days."</h3>
+        <p>A different category of statement. It can be interrogated, reproduced, and held against us — which is precisely what makes it worth hearing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BUILD 4 ======================= -->
+<section class="section" id="build-4">
+  <div class="wrap">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow eyebrow--teal">Build 04 · Expiry intelligence</span>
+        <h2>Stop tracking expiry. Start predicting wastage.</h2>
+        <p class="lede">"Amoxicillin expires December 2026" is a date. Any inventory package can print it, and it tells a manager nothing they can act on.</p>
+        <p>The useful question is how much of that batch will still be on the shelf when the date arrives — which requires the expiry date and the consumption rate in the same sentence. Once those meet, expiry stops being a record-keeping field and becomes a forecast with a currency value attached.</p>
+        <div class="note" style="margin-top:24px">
+          <b>Batch, not product.</b> Risk does not belong to a medicine, it belongs to a delivery. Regnum scores every batch separately and consumes the oldest first when it projects.
+        </div>
+      </div>
+
+      <div data-reveal data-d="1">
+        <div class="demo">
+          <div class="demo-head"><b>Batch #4471 · projected wastage</b><span class="live"><span class="pill-dot amber"></span> 83 days</span></div>
+          <div class="tablewrap">
+            <table class="matrix">
+              <tbody>
+                <tr><td>Units remaining</td><td class="yes">320</td></tr>
+                <tr><td>Expires in</td><td class="yes">83 days</td></tr>
+                <tr><td>Expected consumption before expiry</td><td class="yes">190</td></tr>
+                <tr><td>Estimated excess at expiry</td><td class="yes">130 units</td></tr>
+                <tr><td>Financial exposure</td><td class="yes">Priced from your own cost records</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="form-note" style="margin:14px 0 0">Excess is what the projection says will still be on the shelf on the expiry date — the figure a manager can still act on today.</p>
+        </div>
+
+        <div class="card" style="margin-top:22px" data-reveal>
+          <h3>And then, across facilities</h3>
+          <p>The same arithmetic run at more than one site turns a write-off into a transfer:</p>
+          <div class="alert-row" style="animation-delay:0s"><span class="pill-dot amber"></span><b>Clinic A</b> — 130 units projected excess <span>surplus</span></div>
+          <div class="alert-row" style="animation-delay:0s"><span class="pill-dot red"></span><b>Clinic B</b> — 110 units projected shortfall <span>need</span></div>
+          <div class="alert-row" style="animation-delay:0s"><span class="pill-dot green"></span><b>Redistribution identified</b> — before either date lands <span>act</span></div>
+          <p style="margin-top:14px;font-size:.93rem" class="muted">In a country where stock sits unevenly across facilities, this is the difference between medicine expiring in one district and being unavailable in the next.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BUILD 5 ======================= -->
+<section class="section section--soft" id="build-5">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="eyebrow">Build 05 · Financial intelligence</span>
+      <h2>Physical inventory → operational risk → money</h2>
+      <p class="lede">This is the deliberate separation. A logistics system tells you where the stock is. Regnum is built so the person who owns the practice can ask what it is doing to the balance sheet — and get the answer from the same records, on the same screen, the same day.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card" data-reveal><h3>"How much money is sitting in medication inventory right now?"</h3></div>
+      <div class="card" data-reveal data-d="1"><h3>"How much of it is at risk of expiring?"</h3></div>
+      <div class="card" data-reveal data-d="2"><h3>"Which medicines are tying up the most capital?"</h3></div>
+      <div class="card" data-reveal><h3>"What did emergency procurement cost us this quarter?"</h3></div>
+      <div class="card" data-reveal data-d="1"><h3>"Where are we overstocked?"</h3></div>
+      <div class="card" data-reveal data-d="2"><h3>"Which supplier price changes affected our purchasing?"</h3></div>
+    </div>
+
+    <div class="note" style="margin-top:34px;max-width:74ch" data-reveal>
+      <b>Why this is the differentiation.</b> Stock control and money are usually two systems, two exports and a reconciliation nobody enjoys. Holding them in one database means a wastage projection is already a currency figure, and an emergency order is already a line in the quarter.
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BUILD 6 ======================= -->
+<section class="section" id="build-6">
+  <div class="wrap">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow eyebrow--clay">Build 06 · Anomaly detection</span>
+        <h2>Point at the day. Say nothing about the reason.</h2>
+        <p class="lede">Start simple and stay simple: establish what normal movement looks like for each item over its own history, then flag the deviations. No exotic modelling is required to be useful here, and over-engineering it early is how these systems lose their audience.</p>
+        <div class="note" style="margin-top:22px">
+          <b>Regnum will never say "theft detected".</b> An unusual day is far more often an outreach clinic, a bulk dispense, a correction of an earlier error, or a genuine spike in illness. The system identifies where a human should look. The human decides what it means.
+        </div>
+      </div>
+
+      <div data-reveal data-d="1">
+        <div class="demo">
+          <div class="demo-head"><b>Paracetamol 500mg · Tuesday</b><span class="live"><span class="pill-dot amber"></span> flagged</span></div>
+          <div class="readout" style="margin-top:0">
+            <div><b>20–30</b><small>Normal units / day</small></div>
+            <div><b>94</b><small>Moved Tuesday</small></div>
+            <div><b>3.4×</b><small>Historical average</small></div>
+          </div>
+          <div class="alert-row" style="margin-top:18px"><span class="pill-dot amber"></span><b>Unusual consumption detected</b> — 3.4× historical daily average. Review recommended. <span>open</span></div>
+          <p class="form-note" style="margin:14px 0 0">Each flag carries the window it compared against and the records behind it, so the review takes a minute rather than an afternoon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SCORECARD ======================= -->
+<section class="section section--sand">
+  <div class="wrap">
+    <div class="head head--center" data-reveal>
+      <span class="eyebrow">The instrument</span>
+      <h2>The pilot scorecard</h2>
+      <p class="lede">One page, kept from the first week. Baseline on the left, current on the right, and the difference between them is the entire argument.</p>
+    </div>
+
+    <div class="tablewrap" data-reveal>
+      <table class="matrix">
+        <thead>
+          <tr><th style="min-width:250px">Measure</th><th>Baseline</th><th>Current</th><th>Change</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Inventory accuracy (counted vs. recorded)</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Stock-outs per month</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Near-stock-out events</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Units expired</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Value of expired stock</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Stock at risk within 90 days</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Total inventory value held</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Overstocked lines</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Emergency orders placed</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Cost of emergency procurement</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Average supplier lead time</td><td>Capturing</td><td>—</td><td>—</td></tr>
+          <tr><td>Forecast accuracy (medicines × days)</td><td>n/a</td><td>—</td><td>—</td></tr>
+          <tr><td>Anomaly flags raised / confirmed useful</td><td>n/a</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:28px;max-width:74ch" data-reveal>
+      <b>"Capturing" is not a placeholder we are embarrassed by.</b> It is the honest state of a pilot in its measurement phase, and publishing it is cheaper than publishing a number we would later have to defend.
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CTA ======================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="cta" data-reveal>
+      <div style="max-width:58ch">
+        <span class="eyebrow">Pilot sites</span>
+        <h2>The next site benefits from the first one</h2>
+        <p class="lede" style="color:#b3c0da">If you run a clinic, a pharmacy or a group and would rather see a method than a slide deck, we will walk you through the baseline process on your own records — and tell you plainly what Regnum cannot do yet.</p>
+        <div class="btn-row" style="margin-top:26px">
+          <a class="btn btn-light btn-lg" href="#" data-open-waitlist>Talk about a pilot <span class="arrow">→</span></a>
+          <a class="btn btn-outline-light btn-lg" href="roadmap.html">See the roadmap</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/img/logo.png" alt=""><span>Regnum Personia<small>Clinical Operations</small></span></a>
+        <p>Inventory, finance and forecasting for clinics and pharmacies — built to run on the hardware you already own.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#values">Our principles</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#" data-open-waitlist>Join the beta</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:kevin.lengwadibe@regnumpesonia.com">kevin.lengwadibe@regnumpesonia.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span data-year>2026</span> Regnum Personia. All rights reserved.</span>
+      <span>Built for clinics that would rather not fight their software.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Demo request / beta modal -->
+<div class="modal" id="waitlist" role="dialog" aria-modal="true" aria-labelledby="wlTitle">
+  <div class="modal-box" style="position:relative">
+    <button class="icon-btn modal-x" type="button" data-close-modal aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <span class="eyebrow">Early access</span>
+    <h3 id="wlTitle" style="font-size:1.55rem">See it on your own numbers</h3>
+    <p style="font-size:.96rem">Tell us a little about your site and we'll set up a walkthrough with a copy loaded from your own data — not a canned demo.</p>
+    <form data-validate data-done="Request received — we'll reply within two working days.">
+      <div class="form-grid">
+        <div class="field field--full">
+          <label for="wlName">Your name</label>
+          <input id="wlName" name="name" type="text" required autocomplete="name" placeholder="Jane Mokoena">
+          <span class="msg"></span>
+        </div>
+        <div class="field field--full">
+          <label for="wlEmail">Work email</label>
+          <input id="wlEmail" name="email" type="email" required autocomplete="email" placeholder="jane@clinic.co.za">
+          <span class="msg"></span>
+        </div>
+        <div class="field">
+          <label for="wlOrg">Practice or pharmacy</label>
+          <input id="wlOrg" name="org" type="text" required placeholder="Riverside Clinic">
+          <span class="msg"></span>
+        </div>
+        <div class="field">
+          <label for="wlSize">Sites</label>
+          <select id="wlSize" name="sites">
+            <option>One site</option>
+            <option>2–5 sites</option>
+            <option>6–20 sites</option>
+            <option>More than 20</option>
+          </select>
+          <span class="msg"></span>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:20px">
+        <button class="btn btn-primary" type="submit">Request the walkthrough</button>
+        <span class="form-note">No card, no commitment.</span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<button class="totop" type="button" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

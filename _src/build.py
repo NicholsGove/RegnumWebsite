@@ -10,6 +10,7 @@ NAV = [
     ("about.html",        "About"),
     ("features.html",     "Features"),
     ("how-it-works.html", "How it works"),
+    ("pilot.html",        "Pilot"),
     ("solutions.html",    "Solutions"),
     ("roadmap.html",      "Roadmap"),
     ("contact.html",      "Contact"),
@@ -94,9 +95,7 @@ SHELL = """<!DOCTYPE html>
       <div>
         <h4>Get in touch</h4>
         <ul>
-          <li><a href="mailto:hello@regnum.co">hello@regnum.co</a></li>
-          <li><a href="mailto:support@regnum.co">support@regnum.co</a></li>
-          <li><a href="mailto:legal@regnum.co">legal@regnum.co</a></li>
+          <li><a href="mailto:kevin.lengwadibe@regnumpesonia.com">kevin.lengwadibe@regnumpesonia.com</a></li>
         </ul>
       </div>
     </div>
