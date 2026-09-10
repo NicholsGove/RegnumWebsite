@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How it works — Regnum Personia</title>
+<title>How it works | Regnum Personia</title>
 <meta name="description" content="From install to first forecast in five steps. How Regnum Personia is set up, fed with data, and used day to day.">
-<meta property="og:title" content="How it works — Regnum Personia">
+<meta property="og:title" content="How it works | Regnum Personia">
 <meta property="og:description" content="From install to first forecast in five steps. How Regnum Personia is set up, fed with data, and used day to day.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="Regnum Personia home">
       <img src="assets/img/logo.png" alt="">
-      <span>Regnum Personia<small>Health Centre Operations</small></span>
+      <span>Regnum Personia<small>Clinical Operations</small></span>
     </a>
     <nav>
       <ul class="nav-links" id="navLinks">
@@ -73,11 +73,11 @@
           <div class="card card--flat">
             <span class="eyebrow">Step one</span>
             <h2 style="font-size:1.75rem">Install it where the data should live</h2>
-            <p>Regnum ships as a single Windows installer. It sets up the application and its database on the machine you choose — a reception PC, the back-office desktop, or a small server if you have one. Nothing is provisioned in the cloud, and nothing phones home to work.</p>
+            <p>Regnum ships as a single Windows installer. It sets up the application and its database on the machine you choose: a reception PC, the back-office desktop, or a small server if you have one. Nothing is provisioned in the cloud, and nothing phones home to work.</p>
             <ul class="ticklist">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Runs on ordinary hardware — no dedicated server required</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Runs on ordinary hardware, with no dedicated server required</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Other staff reach it from their own browsers over your local network</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Works with the internet down; a clinic's day should not depend on a link</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Works with the internet down; a facility's day should not depend on a link</li>
             </ul>
             <div class="btn-row" style="margin-top:20px"><button class="btn btn-ghost btn-sm" type="button" data-step-next>Next step <span class="arrow">→</span></button></div>
           </div>
@@ -103,7 +103,7 @@
           <div class="card card--flat">
             <span class="eyebrow">Step three</span>
             <h2 style="font-size:1.75rem">Import the file you already keep</h2>
-            <p>Upload your stock list and whatever else you keep: purchases, suppliers, batch numbers and expiry dates, consumption history, stock received, adjustments, costs, and lead times if you record them. Regnum reads the columns, shows you its interpretation, and asks you to confirm the mapping once. Rows it cannot parse are listed individually with the reason — you fix them in place rather than starting over. Nothing about how you currently record stock has to change.</p>
+            <p>Upload your stock list and whatever else you keep: purchases, suppliers, batch numbers and expiry dates, consumption history, stock received, adjustments, costs, and lead times if you record them. Regnum reads the columns, shows you its interpretation, and asks you to confirm the mapping once. Rows it cannot parse are listed individually with the reason, so you fix them in place rather than starting over. Nothing about how you currently record stock has to change.</p>
             <div class="grid grid-3" style="margin:22px 0">
               <div class="card card--pad-sm"><h4 style="font-size:.92rem">Accepts</h4><p style="font-size:.88rem;margin:0">CSV, XLSX, and exports from most dispensing systems</p></div>
               <div class="card card--pad-sm"><h4 style="font-size:.92rem">Reports</h4><p style="font-size:.88rem;margin:0">Rows imported, rows skipped, duplicates merged</p></div>
@@ -118,14 +118,14 @@
           <div class="card card--flat">
             <span class="eyebrow eyebrow--teal">Step four</span>
             <h2 style="font-size:1.75rem">Let the models learn your normal</h2>
-            <p>With history loaded, Regnum builds a consumption profile per item — the ordinary week, the seasonal shape, the items that move in bursts. From that it derives reorder points, expiry risk and the first forecasts. If your history is short, it says so and starts conservative.</p>
+            <p>With history loaded, Regnum builds a consumption profile per item: the ordinary week, the seasonal shape, the items that move in bursts. From that it derives reorder points, expiry risk and the first forecasts. If your history is short, it says so and starts conservative.</p>
             <ul class="ticklist">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Twelve months of history gives a strong profile; three months gives a usable one</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Forecasts refresh as new movement is recorded — no monthly rebuild</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Forecasts refresh as new movement is recorded, with no monthly rebuild</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> You can override any suggestion, and the override is remembered</li>
             </ul>
             <div class="note" style="margin-top:22px">
-              <b>We will suggest a count before you trust any of it.</b> Forecasts inherit whatever error is already in your records, so the first thing we recommend is physically counting a sample of the medicines that matter and comparing it to the system. It is the same method we run in the <a href="pilot.html#build-2">clinic pilot</a>, and it takes an afternoon.
+              <b>We will suggest a count before you trust any of it.</b> Forecasts inherit whatever error is already in your records, so the first thing we recommend is physically counting a sample of the medicines that matter and comparing it to the system. It is the same method we run in the <a href="pilot.html#build-2">pilot</a>, and it takes an afternoon.
             </div>
             <div class="btn-row" style="margin-top:20px"><button class="btn btn-ghost btn-sm" type="button" data-step-next>Next step <span class="arrow">→</span></button></div>
           </div>
@@ -163,7 +163,7 @@
       <div data-reveal>
         <span class="eyebrow eyebrow--clay">Questions people ask first</span>
         <h2>The practical stuff</h2>
-        <p class="lede">If yours is not here, ask us directly — we answer these ourselves.</p>
+        <p class="lede">If yours is not here, ask us directly. We answer these ourselves.</p>
         <div class="btn-row" style="margin-top:20px"><a class="btn btn-ghost" href="contact.html">Ask a question <span class="arrow">→</span></a></div>
       </div>
       <div class="acc" data-reveal data-d="1">
@@ -173,7 +173,7 @@
         </div>
         <div class="acc-item">
           <button class="acc-q" type="button" aria-expanded="false">What happens if the machine dies?<span class="acc-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="acc-a"><div class="acc-a-in"><p>Regnum takes scheduled backups to a location you nominate — an external drive, a network share, or your own cloud folder. Restoring is a single step, and we recommend testing it once so you know it works before you need it.</p></div></div>
+          <div class="acc-a"><div class="acc-a-in"><p>Regnum takes scheduled backups to a location you nominate: an external drive, a network share, or your own cloud folder. Restoring is a single step, and we recommend testing it once so you know it works before you need it.</p></div></div>
         </div>
         <div class="acc-item">
           <button class="acc-q" type="button" aria-expanded="false">Can it work across several branches?<span class="acc-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
@@ -181,7 +181,7 @@
         </div>
         <div class="acc-item">
           <button class="acc-q" type="button" aria-expanded="false">How long until it is actually useful?<span class="acc-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="acc-a"><div class="acc-a-in"><p>Stock visibility and alerts work from the first import. Forecasting starts producing numbers within days if you brought history with you, and sharpens over the first two or three months as live movement accumulates. How accurate those forecasts are is a question we are answering with measurement rather than assertion — see <a href="pilot.html#build-3">how we score them</a>.</p></div></div>
+          <div class="acc-a"><div class="acc-a-in"><p>Stock visibility and alerts work from the first import. Forecasting starts producing numbers within days if you brought history with you, and sharpens over the first two or three months as live movement accumulates. How accurate those forecasts are is a question we are answering with measurement rather than assertion. See <a href="pilot.html#build-3">how we score them</a>.</p></div></div>
         </div>
         <div class="acc-item">
           <button class="acc-q" type="button" aria-expanded="false">What does it cost?<span class="acc-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
@@ -209,6 +209,7 @@
 </section>
 
 
+
 </main>
 
 <footer class="foot">
@@ -216,13 +217,14 @@
     <div class="foot-grid">
       <div>
         <a class="brand" href="index.html"><img src="assets/img/logo.png" alt=""><span>Regnum Personia<small>Clinical Operations</small></span></a>
-        <p>Inventory, finance and forecasting for clinics and pharmacies — built to run on the hardware you already own.</p>
+        <p>Inventory, finance and forecasting for healthcare facilities and pharmacies, built to run on the hardware you already own.</p>
       </div>
       <div>
         <h4>Product</h4>
         <ul>
           <li><a href="features.html">Features</a></li>
           <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="pilot.html">The pilot</a></li>
           <li><a href="solutions.html">Solutions</a></li>
           <li><a href="roadmap.html">Roadmap</a></li>
         </ul>
@@ -245,7 +247,7 @@
     </div>
     <div class="foot-bot">
       <span>&copy; <span data-year>2026</span> Regnum Personia. All rights reserved.</span>
-      <span>Built for clinics that would rather not fight their software.</span>
+      <span>Built for healthcare facilities that would rather not fight their software.</span>
     </div>
   </div>
 </footer>
@@ -258,8 +260,8 @@
     </button>
     <span class="eyebrow">Early access</span>
     <h3 id="wlTitle" style="font-size:1.55rem">See it on your own numbers</h3>
-    <p style="font-size:.96rem">Tell us a little about your site and we'll set up a walkthrough with a copy loaded from your own data — not a canned demo.</p>
-    <form data-validate data-done="Request received — we'll reply within two working days.">
+    <p style="font-size:.96rem">Tell us a little about your site and we'll set up a walkthrough with a copy loaded from your own data, not a canned demo.</p>
+    <form data-validate data-done="Request received. We'll reply within two working days.">
       <div class="form-grid">
         <div class="field field--full">
           <label for="wlName">Your name</label>
@@ -268,20 +270,20 @@
         </div>
         <div class="field field--full">
           <label for="wlEmail">Work email</label>
-          <input id="wlEmail" name="email" type="email" required autocomplete="email" placeholder="jane@clinic.co.za">
+          <input id="wlEmail" name="email" type="email" required autocomplete="email" placeholder="jane@facility.co.bw">
           <span class="msg"></span>
         </div>
         <div class="field">
-          <label for="wlOrg">Practice or pharmacy</label>
-          <input id="wlOrg" name="org" type="text" required placeholder="Riverside Clinic">
+          <label for="wlOrg">Facility or pharmacy</label>
+          <input id="wlOrg" name="org" type="text" required placeholder="Riverside Health Centre">
           <span class="msg"></span>
         </div>
         <div class="field">
           <label for="wlSize">Sites</label>
           <select id="wlSize" name="sites">
             <option>One site</option>
-            <option>2–5 sites</option>
-            <option>6–20 sites</option>
+            <option>2 to 5 sites</option>
+            <option>6 to 20 sites</option>
             <option>More than 20</option>
           </select>
           <span class="msg"></span>

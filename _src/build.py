@@ -36,7 +36,7 @@ SHELL = """<!DOCTYPE html>
 <link rel="icon" type="image/png" href="assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -72,13 +72,14 @@ SHELL = """<!DOCTYPE html>
     <div class="foot-grid">
       <div>
         <a class="brand" href="index.html"><img src="assets/img/logo.png" alt=""><span>Regnum Personia<small>Clinical Operations</small></span></a>
-        <p>Inventory, finance and forecasting for clinics and pharmacies — built to run on the hardware you already own.</p>
+        <p>Inventory, finance and forecasting for healthcare facilities and pharmacies, built to run on the hardware you already own.</p>
       </div>
       <div>
         <h4>Product</h4>
         <ul>
           <li><a href="features.html">Features</a></li>
           <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="pilot.html">The pilot</a></li>
           <li><a href="solutions.html">Solutions</a></li>
           <li><a href="roadmap.html">Roadmap</a></li>
         </ul>
@@ -101,7 +102,7 @@ SHELL = """<!DOCTYPE html>
     </div>
     <div class="foot-bot">
       <span>&copy; <span data-year>2026</span> Regnum Personia. All rights reserved.</span>
-      <span>Built for clinics that would rather not fight their software.</span>
+      <span>Built for healthcare facilities that would rather not fight their software.</span>
     </div>
   </div>
 </footer>
@@ -114,8 +115,8 @@ SHELL = """<!DOCTYPE html>
     </button>
     <span class="eyebrow">Early access</span>
     <h3 id="wlTitle" style="font-size:1.55rem">See it on your own numbers</h3>
-    <p style="font-size:.96rem">Tell us a little about your site and we'll set up a walkthrough with a copy loaded from your own data — not a canned demo.</p>
-    <form data-validate data-done="Request received — we'll reply within two working days.">
+    <p style="font-size:.96rem">Tell us a little about your site and we'll set up a walkthrough with a copy loaded from your own data, not a canned demo.</p>
+    <form data-validate data-done="Request received. We'll reply within two working days.">
       <div class="form-grid">
         <div class="field field--full">
           <label for="wlName">Your name</label>
@@ -124,20 +125,20 @@ SHELL = """<!DOCTYPE html>
         </div>
         <div class="field field--full">
           <label for="wlEmail">Work email</label>
-          <input id="wlEmail" name="email" type="email" required autocomplete="email" placeholder="jane@clinic.co.za">
+          <input id="wlEmail" name="email" type="email" required autocomplete="email" placeholder="jane@facility.co.bw">
           <span class="msg"></span>
         </div>
         <div class="field">
-          <label for="wlOrg">Practice or pharmacy</label>
-          <input id="wlOrg" name="org" type="text" required placeholder="Riverside Clinic">
+          <label for="wlOrg">Facility or pharmacy</label>
+          <input id="wlOrg" name="org" type="text" required placeholder="Riverside Health Centre">
           <span class="msg"></span>
         </div>
         <div class="field">
           <label for="wlSize">Sites</label>
           <select id="wlSize" name="sites">
             <option>One site</option>
-            <option>2–5 sites</option>
-            <option>6–20 sites</option>
+            <option>2 to 5 sites</option>
+            <option>6 to 20 sites</option>
             <option>More than 20</option>
           </select>
           <span class="msg"></span>
