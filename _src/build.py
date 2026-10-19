@@ -4,7 +4,7 @@
 Run:  python _src/build.py
 Writes the eight pages, 404.html and sitemap.xml into the site root.
 """
-import datetime, json, os, re, sys
+import datetime, hashlib, json, os, re, sys
 
 SRC = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(SRC)
@@ -54,7 +54,7 @@ SHELL = """<!DOCTYPE html>
 {robots}<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/public-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v={css_v}">
 <script>document.documentElement.classList.add('js');try{{var t=localStorage.getItem('rp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}</script>
 <script type="application/ld+json">{jsonld}</script>
 </head>
@@ -182,7 +182,7 @@ SHELL = """<!DOCTYPE html>
   </div>
 </div>
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v={js_v}" defer></script>
 </body>
 </html>
 """
@@ -226,7 +226,13 @@ def jsonld(name, title, desc):
         })
     return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
 
+def asset_version(rel):
+    """Short content hash, so browsers fetch a changed file instead of a cached copy."""
+    with open(os.path.join(OUT, rel), "rb") as f:
+        return hashlib.sha256(f.read()).hexdigest()[:10]
+
 def build():
+    css_v, js_v = asset_version("assets/css/style.css"), asset_version("assets/js/main.js")
     parts = sorted(f for f in os.listdir(SRC) if f.endswith(".part.html"))
     if not parts:
         print("no parts found"); return 1
@@ -250,7 +256,7 @@ def build():
             base='<base href="/">\n' if is404 else "",
             robots='<meta name="robots" content="noindex">\n' if is404 else "",
             jsonld=jsonld(name, title, desc),
-            sun=ICON["sun"], moon=ICON["moon"])
+            sun=ICON["sun"], moon=ICON["moon"], css_v=css_v, js_v=js_v)
         open(os.path.join(OUT, name), "w", encoding="utf-8").write(html)
         if not is404:
             pages.append(name)
