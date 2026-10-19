@@ -1,13 +1,15 @@
 /* ============================================================
-   Regnum Personia — site interactions
+   Regnum Personia: site interactions
    No dependencies. Every widget is optional: each initialiser
    bails out quietly if its markup isn't on the page.
    ============================================================ */
+document.documentElement.classList.add('js');
 (function () {
   'use strict';
 
   const $  = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const reduced = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Theme ---------- */
   function initTheme() {
@@ -23,64 +25,52 @@
     }));
   }
 
-  /* ---------- Nav ---------- */
+  /* ---------- Nav (mobile "Menu" toggle) ---------- */
   function initNav() {
-    const nav = $('.nav'), links = $('.nav-links'), burger = $('.burger'), bar = $('.scrollbar');
-    if (burger && links) {
-      burger.addEventListener('click', () => {
-        const open = links.classList.toggle('open');
-        burger.setAttribute('aria-expanded', String(open));
-      });
-      $$('a', links).forEach(a => a.addEventListener('click', () => {
-        links.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-      }));
-    }
-    const onScroll = () => {
-      const y = window.scrollY || document.documentElement.scrollTop;
-      if (nav) nav.classList.toggle('is-stuck', y > 8);
-      if (bar) {
-        const h = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    const btn = $('.menu-btn'), nav = $('.service-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.focus();
       }
-      const top = $('.totop');
-      if (top) top.classList.toggle('show', y > 620);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    const top = $('.totop');
-    if (top) top.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    });
   }
 
-  /* ---------- Scroll reveal ---------- */
-  function initReveal() {
-    const els = $$('[data-reveal]');
-    if (!els.length) return;
-    if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(en => {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    els.forEach(e => io.observe(e));
-
-    // Safety net: anything still hidden after a few seconds (odd scroll
-    // containers, print preview, full-page capture) is shown anyway.
-    setTimeout(() => els.forEach(e => e.classList.add('in')), 4000);
-    window.addEventListener('beforeprint', () => els.forEach(e => e.classList.add('in')));
+  /* ---------- Evidence stamps ---------- */
+  /* A stamp presses onto its record when the record comes into view.
+     The hero stamp lands shortly after the page settles. */
+  function initStamps() {
+    const stamps = $$('[data-stamp]');
+    if (!stamps.length) return;
+    const press = (el) => el.classList.add('is-in');
+    if (reduced() || !('IntersectionObserver' in window)) { stamps.forEach(press); return; }
+    const io = new IntersectionObserver((entries) => entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      io.unobserve(en.target);
+      // Stamps visible on arrival wait for the page transition to finish; later ones press at once.
+      const early = performance.now() < 1600;
+      const delay = early ? Math.max(700, parseInt(en.target.dataset.stampDelay || '0', 10)) : 120;
+      setTimeout(() => press(en.target), delay);
+    }), { threshold: 0.6 });
+    stamps.forEach(s => io.observe(s));
+    window.addEventListener('beforeprint', () => stamps.forEach(press));
   }
 
   /* ---------- Count-up numbers ---------- */
   function initCounters() {
     const els = $$('[data-count]');
-    if (!els.length || !('IntersectionObserver' in window)) {
+    if (!els.length || reduced() || !('IntersectionObserver' in window)) {
       els.forEach(e => { e.textContent = e.dataset.count; });
       return;
     }
     const run = (el) => {
       const target = parseFloat(el.dataset.count);
       const dec = (el.dataset.count.split('.')[1] || '').length;
-      const dur = 1500;
+      const dur = 900;
       const t0 = performance.now();
       const tick = (t) => {
         const p = Math.min((t - t0) / dur, 1);
@@ -188,13 +178,13 @@
       m: ['scope: all facilities', 'window: 30 days', 'source: batch + expiry table']
     },
     q2: {
-      t: 'R 48 200',
+      t: 'P 48 200',
       s: 'is sitting in stock that has not moved in 90 days. Amoxicillin 500mg and three consumable lines account for most of it.',
       m: ['metric: idle stock value', 'window: 90 days', 'source: movement ledger']
     },
     q3: {
       t: 'Tuesday & Friday',
-      s: 'are the peak dispensing days. Order cut-offs land badly against them — moving the weekly order to Monday morning smooths the shortfall.',
+      s: 'are the peak dispensing days. Order cut-offs land badly against them, so moving the weekly order to Monday morning smooths the shortfall.',
       m: ['metric: dispense volume', 'window: 12 weeks', 'source: activity log']
     },
     q4: {
@@ -325,16 +315,38 @@
     el._t = setTimeout(() => el.classList.remove('show'), 4200);
   }
 
-  /* ---------- Modal ---------- */
+  /* ---------- Modal (demo request) ---------- */
   function initModal() {
     const modal = $('#waitlist');
     if (!modal) return;
-    const open = () => { modal.classList.add('open'); document.body.style.overflow = 'hidden'; const f = $('input', modal); if (f) setTimeout(() => f.focus(), 260); };
-    const close = () => { modal.classList.remove('open'); document.body.style.overflow = ''; };
+    let lastFocus = null;
+    const focusables = () => $$('a[href], button:not([disabled]), input, select, textarea', modal).filter(el => el.offsetParent !== null);
+    const open = () => {
+      lastFocus = document.activeElement;
+      modal.hidden = false;
+      requestAnimationFrame(() => modal.classList.add('open'));
+      document.body.style.overflow = 'hidden';
+      const f = $('input', modal); if (f) setTimeout(() => f.focus(), 60);
+    };
+    const close = () => {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => { modal.hidden = true; }, reduced() ? 0 : 240);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
     $$('[data-open-waitlist]').forEach(b => b.addEventListener('click', (e) => { e.preventDefault(); open(); }));
     $$('[data-close-modal]', modal).forEach(b => b.addEventListener('click', close));
     modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (modal.hidden) return;
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key === 'Tab') {
+        const f = focusables(); if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
     modal._close = close;
   }
 
@@ -361,7 +373,7 @@
 
   function formSubject(form, data) {
     if (data.get('topic')) return 'Website enquiry: ' + data.get('topic');
-    if (form.closest('.modal')) return 'Early access request — Regnum Personia website';
+    if (form.closest('.modal')) return 'Demo request from the Regnum Personia website';
     return 'Message from the Regnum Personia website';
   }
 
@@ -445,15 +457,15 @@
           form.reset();
           fields.forEach(f => f.classList.remove('ok', 'err'));
           if (outcome === 'mailto') {
-            toast('Opening your email app — press send there and it reaches us.');
+            toast('Opening your email app. Press send there and it reaches us.');
           } else {
-            toast(form.dataset.done || 'Thanks — we’ll be in touch shortly.');
+            toast(form.dataset.done || 'Thank you. We will be in touch shortly.');
           }
           const modal = form.closest('.modal');
           if (modal && modal._close) modal._close();
         } catch (err) {
           console.error('Form submission failed:', err);
-          toast('That didn’t send. Please email ' + CONTACT_EMAIL + ' directly.');
+          toast('That did not send. Please email ' + CONTACT_EMAIL + ' directly.');
         } finally {
           if (btn) { btn.disabled = false; btn.textContent = label; }
         }
@@ -466,7 +478,7 @@
 
   /* ---------- Boot ---------- */
   function boot() {
-    initTheme(); initNav(); initReveal(); initCounters(); initSlots();
+    initTheme(); initNav(); initStamps(); initCounters(); initSlots();
     initTabs(); initAcc(); initStepper(); initAsk(); initSim();
     initRoadmap(); initModal(); initForms(); initYear();
   }
