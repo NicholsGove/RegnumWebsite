@@ -75,8 +75,23 @@
         <div class="btn-row">
           <button class="btn btn-primary" type="submit" id="signInBtn">Sign in</button>
           <button class="linkbtn" type="button" id="signUpBtn">First time? Create your password</button>
+          <button class="linkbtn" type="button" id="forgotBtn">Forgot your password?</button>
         </div>
         <p class="ibx-status" id="authStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Set a new password (after opening a reset link) -->
+    <section id="resetView" class="ibx-auth" aria-labelledby="resetTitle" hidden>
+      <span class="eyebrow">Staff only</span>
+      <h1 id="resetTitle" style="font-size:2rem">Choose a new password</h1>
+      <form id="resetForm" novalidate>
+        <div class="form-grid">
+          <div class="field field--full"><label for="rPass">New password <i>(at least 8 characters)</i></label><input id="rPass" type="password" autocomplete="new-password" required minlength="8"></div>
+          <div class="field field--full"><label for="rPass2">Type it again</label><input id="rPass2" type="password" autocomplete="new-password" required minlength="8"></div>
+        </div>
+        <div class="btn-row"><button class="btn btn-primary" type="submit">Save new password</button></div>
+        <p class="ibx-status" id="resetStatus" role="status" aria-live="polite"></p>
       </form>
     </section>
 
@@ -133,6 +148,8 @@
 
   /* ---------- Auth ---------- */
   async function show() {
+    if (recovering) { const { data: { session } } = await sb.auth.getSession(); if (session) return showReset(); }
+    $('#resetView').hidden = true;
     const { data: { session } } = await sb.auth.getSession();
     $('#notAdmin').hidden = true;
     if (!session) { $('#authView').hidden = false; $('#appView').hidden = true; return; }
@@ -149,7 +166,7 @@
     if (!email || password.length < 8) return say($('#authStatus'), 'Enter your email and a password of at least 8 characters.', true);
     say($('#authStatus'), 'Signing in…');
     const { error } = await sb.auth.signInWithPassword({ email, password });
-    if (error) return say($('#authStatus'), error.message === 'Email not confirmed' ? 'Confirm your email first: open the link Supabase sent you, then sign in here.' : error.message, true);
+    if (error) return say($('#authStatus'), error.message === 'Email not confirmed' ? 'Confirm your email first: open the link Supabase sent you, then sign in here.' : error.message === 'Invalid login credentials' ? 'That email and password do not match. Check for typing mistakes, or use "Forgot your password?".' : error.message, true);
     say($('#authStatus'), ''); show();
   });
 
@@ -157,14 +174,57 @@
     const email = $('#aEmail').value.trim().toLowerCase(), password = $('#aPass').value;
     if (!email || password.length < 8) return say($('#authStatus'), 'Type your email and choose a password of at least 8 characters, then press this again.', true);
     say($('#authStatus'), 'Creating your account…');
-    const { data, error } = await sb.auth.signUp({ email, password, options: { emailRedirectTo: location.href.split('#')[0] } });
+    const { data, error } = await sb.auth.signUp({ email, password, options: { emailRedirectTo: location.origin + location.pathname } });
+    if (!error && data.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) return say($('#authStatus'), 'This email already has an account, so this did not change its password. Sign in, or use "Forgot your password?".', true);
     if (error) return say($('#authStatus'), error.message, true);
     if (data.session) { say($('#authStatus'), ''); return show(); }
     say($('#authStatus'), 'Check your email for a confirmation link. After you open it, come back and sign in.');
   });
 
+  // The inbox address, wherever it is opened from (live site or a local copy)
+  const HERE = location.origin + location.pathname;
+
+  $('#forgotBtn').addEventListener('click', async () => {
+    const email = $('#aEmail').value.trim().toLowerCase();
+    if (!email) return say($('#authStatus'), 'Type your email address first, then press "Forgot your password?" again.', true);
+    say($('#authStatus'), 'Sending a reset link…');
+    const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: HERE });
+    if (error) return say($('#authStatus'), error.message, true);
+    say($('#authStatus'), 'If that address has an account, a reset link is on its way. Open the newest email only; each new request cancels the older links.');
+  });
+
+  let recovering = /type=recovery/.test(location.hash);
+  function showReset() {
+    $('#authView').hidden = true; $('#appView').hidden = true; $('#notAdmin').hidden = true;
+    $('#resetView').hidden = false; $('#rPass').focus();
+  }
+  $('#resetForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const a = $('#rPass').value, b = $('#rPass2').value;
+    if (a.length < 8) return say($('#resetStatus'), 'Use at least 8 characters.', true);
+    if (a !== b) return say($('#resetStatus'), 'The two passwords do not match.', true);
+    say($('#resetStatus'), 'Saving…');
+    const { error } = await sb.auth.updateUser({ password: a });
+    if (error) return say($('#resetStatus'), error.message, true);
+    recovering = false;
+    history.replaceState(null, '', HERE);
+    $('#resetView').hidden = true;
+    say($('#resetStatus'), '');
+    show();
+  });
+
+  // A link that came back with an error (expired or already used)
+  if (/error_code=/.test(location.hash)) {
+    const p = new URLSearchParams(location.hash.slice(1));
+    history.replaceState(null, '', HERE);
+    setTimeout(() => say($('#authStatus'), (p.get('error_description') || 'That link did not work.').replace(/\+/g, ' ') + '. Request a new one; only the newest email works.', true), 0);
+  }
+
   $('#signOutBtn').addEventListener('click', async () => { await sb.auth.signOut(); current = null; show(); });
-  sb.auth.onAuthStateChange((evt) => { if (evt === 'SIGNED_OUT') show(); });
+  sb.auth.onAuthStateChange((evt) => {
+    if (evt === 'PASSWORD_RECOVERY') { recovering = true; showReset(); }
+    if (evt === 'SIGNED_OUT') show();
+  });
 
   /* ---------- Data ---------- */
   async function load() {
