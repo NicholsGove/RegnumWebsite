@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-BW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inbox | Regnum Personia</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="preload" href="assets/fonts/public-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('rp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<style>
+  .ibx{padding:32px 0 64px;}
+  .ibx-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px;}
+  .ibx-head h1{font-size:clamp(1.8rem,1.4rem + 1.6vw,2.6rem);margin:0;}
+  .ibx-who{font-size:var(--t-s);color:var(--muted);display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+  .ibx-tools{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:end;margin-bottom:18px;}
+  .ibx-tools .field{min-width:180px;}
+  .ibx-tools .tabs{margin:0;flex:1 1 100%;}
+  .tab .n{display:inline-block;min-width:1.6em;padding:0 6px;margin-left:4px;font-size:.8rem;background:var(--grey-bg);color:var(--grey-tag);text-align:center;}
+  .ibx-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;align-items:start;}
+  @media (max-width:900px){.ibx-grid{grid-template-columns:1fr;}}
+  .ibx-list{border-top:3px solid var(--ink);list-style:none;margin:0;padding:0;}
+  .ibx-list li{margin:0;}
+  .ibx-row{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--rule);padding:14px 12px 14px 16px;font:inherit;color:inherit;cursor:pointer;position:relative;}
+  .ibx-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--stamp);transform:scaleY(0);transform-origin:top;transition:transform .2s var(--ease);}
+  .ibx-row:hover{background:var(--file);}
+  .ibx-row:hover::before,.ibx-row[aria-current="true"]::before{transform:scaleY(1);}
+  .ibx-row[aria-current="true"]{background:var(--file);}
+  .ibx-row:focus-visible{outline:3px solid var(--focus);outline-offset:-3px;box-shadow:inset 0 0 0 6px #0b0c0c;}
+  .ibx-row .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;}
+  .ibx-row b{font-size:1.0625rem;}
+  .ibx-row .when{font-size:var(--t-xs);color:var(--muted);white-space:nowrap;}
+  .ibx-row .sub{display:block;font-size:var(--t-s);color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .ibx-row .tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+  .ibx-row.is-new b::after{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--stamp);margin-left:8px;vertical-align:2px;}
+  .ibx-detail{border:1px solid var(--rule);border-top:5px solid var(--ink);padding:clamp(18px,3vw,28px);position:sticky;top:16px;}
+  .ibx-detail h2{font-size:1.6rem;margin:0 0 4px;}
+  .ibx-detail dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 18px;margin:18px 0;}
+  .ibx-detail dt{color:var(--muted);font-size:var(--t-s);}
+  .ibx-detail dd{margin:0;overflow-wrap:anywhere;}
+  .ibx-msg{white-space:pre-wrap;background:var(--file);border-left:5px solid var(--stamp);padding:14px 16px;margin:0 0 20px;max-width:none;}
+  .ibx-empty{color:var(--muted);padding:24px 0;}
+  .ibx-auth{max-width:440px;border:1px solid var(--rule);border-top:5px solid var(--ink);padding:clamp(20px,4vw,32px);}
+  .ibx-auth .btn-row{margin-top:20px;}
+  .ibx-status{font-size:var(--t-s);color:var(--muted);min-height:1.4em;margin-top:12px;}
+  .ibx-status.err{color:#d4351c;font-weight:700;}
+  .linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--link);text-decoration:underline;cursor:pointer;}
+  .linkbtn:hover{text-decoration-thickness:3px;}
+  .linkbtn:focus-visible{background:var(--focus);color:#0b0c0c;outline:none;box-shadow:0 4px #0b0c0c;}
+  [hidden]{display:none !important;}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="masthead">
+  <div class="wrap masthead__bar">
+    <a class="brand" href="index.html"><img src="assets/img/logo.png" alt="" width="40" height="31"><span>Regnum Personia<small>Website inbox</small></span></a>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="wrap ibx">
+
+    <!-- Sign in -->
+    <section id="authView" class="ibx-auth" aria-labelledby="authTitle" hidden>
+      <span class="eyebrow">Staff only</span>
+      <h1 id="authTitle" style="font-size:2rem">Sign in to the inbox</h1>
+      <p>Messages and demo requests from the website land here. Only the addresses on the admin list can read them.</p>
+      <form id="authForm" novalidate>
+        <div class="form-grid">
+          <div class="field field--full"><label for="aEmail">Email</label><input id="aEmail" type="email" autocomplete="username" required></div>
+          <div class="field field--full"><label for="aPass">Password</label><input id="aPass" type="password" autocomplete="current-password" required minlength="8"></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit" id="signInBtn">Sign in</button>
+          <button class="linkbtn" type="button" id="signUpBtn">First time? Create your password</button>
+        </div>
+        <p class="ibx-status" id="authStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Inbox -->
+    <section id="appView" aria-labelledby="inboxTitle" hidden>
+      <div class="ibx-head">
+        <div><span class="eyebrow">Website submissions</span><h1 id="inboxTitle">Inbox</h1></div>
+        <div class="ibx-who"><span id="whoami"></span><button class="btn btn-ghost btn-sm" type="button" id="refreshBtn">Refresh</button><button class="linkbtn" type="button" id="signOutBtn">Sign out</button></div>
+      </div>
+
+      <div class="ibx-tools">
+        <div class="tabs" role="tablist" aria-label="Filter by status" id="statusTabs"></div>
+        <div class="field"><label for="kindFilter">Type</label>
+          <select id="kindFilter"><option value="">All types</option><option value="demo">Demo requests</option><option value="contact">Messages</option></select></div>
+        <div class="field" style="flex:1;min-width:220px"><label for="search">Search name, email, facility or message</label><input id="search" type="search"></div>
+      </div>
+
+      <div class="ibx-grid">
+        <div>
+          <ul class="ibx-list" id="list" aria-label="Submissions"></ul>
+          <p class="ibx-empty" id="empty" hidden>Nothing here yet.</p>
+        </div>
+        <section class="ibx-detail" id="detail" aria-live="polite">
+          <p class="ibx-empty">Choose a submission to read it.</p>
+        </section>
+      </div>
+      <p class="ibx-status" id="appStatus" role="status" aria-live="polite"></p>
+    </section>
+
+    <p id="notAdmin" class="note" hidden><b>This account is not on the admin list.</b> Ask the site owner to add your email address to the <code>website_admins</code> table in Supabase, then sign in again.</p>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  'use strict';
+  const SUPABASE_URL = 'https://omflbomtvrvctsvlhgzw.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_cfFVlS_wvewAGycJ1sNKeQ_yQ3LUfAe'; // publishable key: safe in the browser, data is protected by row level security
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const $ = (s) => document.querySelector(s);
+  const STATUSES = [
+    ['new', 'New'], ['in_progress', 'In progress'], ['replied', 'Replied'],
+    ['closed', 'Closed'], ['spam', 'Spam'], ['', 'All']
+  ];
+  const STATUS_TAG = { new: 'status--blue', in_progress: 'status--amber', replied: 'status--green', closed: 'status--grey', spam: 'status--red' };
+  let rows = [], filter = 'new', current = null;
+
+  const fmt = (iso) => new Date(iso).toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const tag = (text, cls) => el('strong', 'status ' + cls, text);
+  const say = (node, text, isErr) => { node.textContent = text || ''; node.classList.toggle('err', !!isErr); };
+
+  /* ---------- Auth ---------- */
+  async function show() {
+    const { data: { session } } = await sb.auth.getSession();
+    $('#notAdmin').hidden = true;
+    if (!session) { $('#authView').hidden = false; $('#appView').hidden = true; return; }
+    const { data: ok, error } = await sb.rpc('is_website_admin');
+    if (error || !ok) { $('#authView').hidden = false; $('#appView').hidden = true; $('#notAdmin').hidden = false; return; }
+    $('#authView').hidden = true; $('#appView').hidden = false;
+    $('#whoami').textContent = 'Signed in as ' + session.user.email;
+    load();
+  }
+
+  $('#authForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = $('#aEmail').value.trim().toLowerCase(), password = $('#aPass').value;
+    if (!email || password.length < 8) return say($('#authStatus'), 'Enter your email and a password of at least 8 characters.', true);
+    say($('#authStatus'), 'Signing in…');
+    const { error } = await sb.auth.signInWithPassword({ email, password });
+    if (error) return say($('#authStatus'), error.message === 'Email not confirmed' ? 'Confirm your email first: open the link Supabase sent you, then sign in here.' : error.message, true);
+    say($('#authStatus'), ''); show();
+  });
+
+  $('#signUpBtn').addEventListener('click', async () => {
+    const email = $('#aEmail').value.trim().toLowerCase(), password = $('#aPass').value;
+    if (!email || password.length < 8) return say($('#authStatus'), 'Type your email and choose a password of at least 8 characters, then press this again.', true);
+    say($('#authStatus'), 'Creating your account…');
+    const { data, error } = await sb.auth.signUp({ email, password, options: { emailRedirectTo: location.href.split('#')[0] } });
+    if (error) return say($('#authStatus'), error.message, true);
+    if (data.session) { say($('#authStatus'), ''); return show(); }
+    say($('#authStatus'), 'Check your email for a confirmation link. After you open it, come back and sign in.');
+  });
+
+  $('#signOutBtn').addEventListener('click', async () => { await sb.auth.signOut(); current = null; show(); });
+  sb.auth.onAuthStateChange((evt) => { if (evt === 'SIGNED_OUT') show(); });
+
+  /* ---------- Data ---------- */
+  async function load() {
+    say($('#appStatus'), 'Loading…');
+    const { data, error } = await sb.from('submissions')
+      .select('id,created_at,kind,name,email,organisation,topic,sites,message,page,status,notes,updated_at,updated_by,notified')
+      .order('created_at', { ascending: false }).limit(500);
+    if (error) return say($('#appStatus'), 'Could not load submissions: ' + error.message, true);
+    rows = data || [];
+    say($('#appStatus'), rows.length + ' submission' + (rows.length === 1 ? '' : 's') + ' loaded at ' + new Date().toLocaleTimeString('en-GB'));
+    renderTabs(); renderList();
+    if (current) { const r = rows.find(x => x.id === current); if (r) renderDetail(r); }
+  }
+  $('#refreshBtn').addEventListener('click', load);
+
+  function renderTabs() {
+    const box = $('#statusTabs'); box.textContent = '';
+    STATUSES.forEach(([key, label]) => {
+      const n = key ? rows.filter(r => r.status === key).length : rows.length;
+      const b = el('button', 'tab' + (filter === key ? ' active' : ''), label);
+      b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', String(filter === key));
+      b.appendChild(el('span', 'n', String(n)));
+      b.addEventListener('click', () => { filter = key; renderTabs(); renderList(); });
+      box.appendChild(b);
+    });
+  }
+
+  function visible() {
+    const kind = $('#kindFilter').value, q = $('#search').value.trim().toLowerCase();
+    return rows.filter(r => (!filter || r.status === filter) && (!kind || r.kind === kind) &&
+      (!q || [r.name, r.email, r.organisation, r.message, r.topic].some(v => (v || '').toLowerCase().includes(q))));
+  }
+  $('#kindFilter').addEventListener('change', renderList);
+  $('#search').addEventListener('input', renderList);
+
+  function renderList() {
+    const list = $('#list'); list.textContent = '';
+    const items = visible();
+    $('#empty').hidden = items.length > 0;
+    items.forEach(r => {
+      const li = el('li'), b = el('button', 'ibx-row' + (r.status === 'new' ? ' is-new' : ''));
+      b.type = 'button';
+      if (r.id === current) b.setAttribute('aria-current', 'true');
+      const top = el('span', 'top'); top.append(el('b', null, r.name), el('span', 'when', fmt(r.created_at)));
+      const sub = el('span', 'sub', [r.organisation, r.email].filter(Boolean).join(', '));
+      const tags = el('span', 'tags');
+      tags.append(tag(r.kind === 'demo' ? 'Demo request' : 'Message', 'status--ink'), tag(STATUSES.find(s => s[0] === r.status)[1], STATUS_TAG[r.status]));
+      b.append(top, sub, tags);
+      b.addEventListener('click', () => { current = r.id; renderList(); renderDetail(r); });
+      li.appendChild(b); list.appendChild(li);
+    });
+  }
+
+  function renderDetail(r) {
+    const d = $('#detail'); d.textContent = '';
+    d.append(el('span', 'eyebrow', (r.kind === 'demo' ? 'Demo request' : 'Message') + ', received ' + fmt(r.created_at)), el('h2', null, r.name));
+    const dl = el('dl');
+    const add = (k, v, node) => { if (!v && !node) return; dl.append(el('dt', null, k)); const dd = el('dd'); if (node) dd.appendChild(node); else dd.textContent = v; dl.append(dd); };
+    const mail = el('a', null, r.email);
+    const subj = r.kind === 'demo' ? 'Your Regnum Personia walkthrough' : 'Re: ' + (r.topic || 'your message to Regnum Personia');
+    mail.href = 'mailto:' + encodeURIComponent(r.email) + '?subject=' + encodeURIComponent(subj);
+    add('Email', null, mail);
+    add('Facility', r.organisation); add('Topic', r.topic); add('Sites', r.sites);
+    add('Sent from', r.page); add('Reference', r.id.slice(0, 8));
+    if (r.notified !== null) add('Email alert', r.notified ? 'Sent' : 'Failed');
+    d.appendChild(dl);
+    if (r.message) d.appendChild(el('p', 'ibx-msg', r.message));
+
+    const form = el('form'); form.noValidate = true;
+    form.innerHTML = '<div class="form-grid">' +
+      '<div class="field field--full"><label for="dStatus">Status</label><select id="dStatus"></select></div>' +
+      '<div class="field field--full"><label for="dNotes">Internal notes <i>(only staff see these)</i></label><textarea id="dNotes" maxlength="5000"></textarea></div></div>' +
+      '<div class="btn-row"><button class="btn btn-primary" type="submit">Save</button></div>' +
+      '<p class="ibx-status" role="status" aria-live="polite"></p>';
+    const sel = form.querySelector('#dStatus');
+    STATUSES.filter(s => s[0]).forEach(([k, l]) => { const o = el('option', null, l); o.value = k; if (k === r.status) o.selected = true; sel.appendChild(o); });
+    form.querySelector('#dNotes').value = r.notes || '';
+    const reply = el('a', 'btn btn-ghost', 'Reply by email'); reply.href = mail.href;
+    reply.addEventListener('click', () => { if (r.status === 'new') sel.value = 'in_progress'; });
+    form.querySelector('.btn-row').appendChild(reply);
+    const st = form.querySelector('.ibx-status');
+    if (r.updated_by && r.updated_by !== 'system') st.textContent = 'Last changed by ' + r.updated_by + ' on ' + fmt(r.updated_at);
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      say(st, 'Saving…');
+      const { error } = await sb.from('submissions').update({ status: sel.value, notes: form.querySelector('#dNotes').value || null }).eq('id', r.id);
+      if (error) return say(st, 'Not saved: ' + error.message, true);
+      say(st, 'Saved.');
+      await load();
+    });
+    d.appendChild(form);
+  }
+
+  show();
+})();
+</script>
+</body>
+</html>

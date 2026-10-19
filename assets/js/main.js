@@ -352,23 +352,19 @@ document.documentElement.classList.add('js');
 
   /* ---------- Forms ---------- */
   /* Where website form submissions go.
-     Delivery runs through Formspree, which emails every submission to CONTACT_EMAIL.
+     Both forms (the Contact page form and the "Request a demo" pop-up) post to the
+     `submit` function in the Regnum Personia Supabase project. It checks the form,
+     stores it in the `submissions` table and, once email is set up, emails it on.
+     Read and manage everything at /inbox.html.
 
-     TO GO LIVE (one step):
-       1. Sign up at https://formspree.io using CONTACT_EMAIL below and confirm the
-          address from the email Formspree sends you.
-       2. Create a form there and copy its ID — the code at the end of the endpoint
-          URL, e.g. https://formspree.io/f/xayzbqvw  ->  'xayzbqvw'
-       3. Paste that ID into FORMSPREE_ID below and re-upload this file.
-
-     Until FORMSPREE_ID is filled in, submitting opens the visitor's own email app
-     with the message pre-filled and addressed to CONTACT_EMAIL, so nothing is lost. */
+     If the backend cannot be reached at all (no internet, outage), the visitor's own
+     email app opens with the message pre-filled to CONTACT_EMAIL, so nothing is lost. */
+  const FORMS_ENDPOINT = 'https://omflbomtvrvctsvlhgzw.supabase.co/functions/v1/submit';
   const CONTACT_EMAIL = 'kevin.lengwadibe@regnumpesonia.com';
-  const FORMSPREE_ID  = '';
 
   const FIELD_LABELS = {
-    name: 'Name', email: 'Email', org: 'Practice', topic: 'Topic',
-    sites: 'Sites', message: 'Message', role: 'Role', phone: 'Phone'
+    name: 'Name', email: 'Email', org: 'Facility', topic: 'Topic',
+    sites: 'Sites', message: 'Message'
   };
 
   function formSubject(form, data) {
@@ -380,59 +376,88 @@ document.documentElement.classList.add('js');
   function formBody(data) {
     const lines = [];
     data.forEach((value, key) => {
-      if (key.charAt(0) === '_' || !String(value).trim()) return;
-      lines.push((FIELD_LABELS[key] || key) + ': ' + value);
+      if (!FIELD_LABELS[key] || !String(value).trim()) return;
+      lines.push(FIELD_LABELS[key] + ': ' + value);
     });
     return lines.join('\n');
   }
 
-  /* No endpoint configured yet — hand the message to the visitor's mail client. */
+  /* Last resort: hand the message to the visitor's mail client. */
   function mailtoFallback(form, data) {
-    const href = 'mailto:' + CONTACT_EMAIL +
+    window.location.href = 'mailto:' + CONTACT_EMAIL +
       '?subject=' + encodeURIComponent(formSubject(form, data)) +
       '&body=' + encodeURIComponent(formBody(data));
-    window.location.href = href;
+  }
+
+  /* A rejection the visitor can fix (bad field, rate limit) */
+  class FormProblem extends Error {
+    constructor(message, fieldErrors) { super(message); this.fieldErrors = fieldErrors || null; }
   }
 
   async function sendForm(form) {
     const data = new FormData(form);
-    data.append('_subject', formSubject(form, data));
-    const replyTo = data.get('email');
-    if (replyTo) data.append('_replyto', replyTo);
-
-    if (!FORMSPREE_ID) { mailtoFallback(form, data); return 'mailto'; }
-
-    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-      method: 'POST',
-      body: data,
-      headers: { Accept: 'application/json' }
-    });
-    if (!res.ok) {
-      let detail = '';
-      try {
-        const json = await res.json();
-        detail = (json.errors || []).map(e => e.message).join(' ');
-      } catch (_) { /* non-JSON error body */ }
-      throw new Error(detail || ('Formspree responded ' + res.status));
+    const payload = {
+      kind: form.closest('.modal') ? 'demo' : 'contact',
+      name: data.get('name') || '',
+      email: data.get('email') || '',
+      org: data.get('org') || '',
+      topic: data.get('topic') || '',
+      sites: data.get('sites') || '',
+      message: data.get('message') || '',
+      company_website: data.get('company_website') || '',
+      elapsed_ms: Date.now() - (form._startedAt || Date.now()),
+      page: location.pathname
+    };
+    let res;
+    try {
+      res = await fetch(FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (networkError) {
+      console.error('Backend unreachable, falling back to email:', networkError);
+      mailtoFallback(form, data);
+      return 'mailto';
     }
-    return 'sent';
+    let json = {};
+    try { json = await res.json(); } catch (_) { /* non-JSON body */ }
+    if (res.ok && json.ok) return 'sent';
+    if (res.status === 422 || res.status === 429) throw new FormProblem(json.error || 'Please check the highlighted fields.', json.errors);
+    if (res.status >= 500 || res.status === 404) { mailtoFallback(form, data); return 'mailto'; }
+    throw new Error(json.error || ('Form backend responded ' + res.status));
   }
 
   function initForms() {
     $$('form[data-validate]').forEach(form => {
       const fields = $$('.field', form);
+      // Bots fill this hidden field; people never see it.
+      if (!$('[name="company_website"]', form)) {
+        const hp = document.createElement('div');
+        hp.className = 'hp';
+        hp.setAttribute('aria-hidden', 'true');
+        hp.innerHTML = '<label>Company website <input name="company_website" type="text" tabindex="-1" autocomplete="off"></label>';
+        form.appendChild(hp);
+      }
+      const start = () => { if (!form._startedAt) form._startedAt = Date.now(); };
+      form.addEventListener('focusin', start);
+      form.addEventListener('pointerdown', start);
+
+      const setError = (field, error) => {
+        const msg = $('.msg', field);
+        field.classList.toggle('err', !!error);
+        if (msg) msg.textContent = error || '';
+      };
       const check = (field) => {
         const input = $('input, select, textarea', field);
         if (!input) return true;
-        const msg = $('.msg', field);
         let error = '';
         const v = (input.value || '').trim();
         if (input.required && !v) error = 'This one is required.';
         else if (input.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) error = 'That email address looks off.';
         else if (input.dataset.min && v.length < +input.dataset.min) error = 'A little more detail, please (' + input.dataset.min + '+ characters).';
-        field.classList.toggle('err', !!error);
+        setError(field, error);
         field.classList.toggle('ok', !error && !!v);
-        if (msg) msg.textContent = error;
         return !error;
       };
       fields.forEach(f => {
@@ -455,17 +480,31 @@ document.documentElement.classList.add('js');
         try {
           const outcome = await sendForm(form);
           form.reset();
+          form._startedAt = 0;
           fields.forEach(f => f.classList.remove('ok', 'err'));
           if (outcome === 'mailto') {
-            toast('Opening your email app. Press send there and it reaches us.');
+            toast('Our form is unavailable, so your email app is opening instead. Press send there and it reaches us.');
           } else {
             toast(form.dataset.done || 'Thank you. We will be in touch shortly.');
           }
           const modal = form.closest('.modal');
           if (modal && modal._close) modal._close();
         } catch (err) {
-          console.error('Form submission failed:', err);
-          toast('That did not send. Please email ' + CONTACT_EMAIL + ' directly.');
+          if (err instanceof FormProblem) {
+            if (err.fieldErrors) {
+              Object.entries(err.fieldErrors).forEach(([name, text]) => {
+                const input = $('[name="' + name + '"]', form);
+                const field = input && input.closest('.field');
+                if (field) setError(field, text);
+              });
+              const bad = $('.field.err', form);
+              if (bad) { const i = $('input, select, textarea', bad); if (i) i.focus(); }
+            }
+            toast(err.message);
+          } else {
+            console.error('Form submission failed:', err);
+            toast('That did not send. Please email ' + CONTACT_EMAIL + ' directly.');
+          }
         } finally {
           if (btn) { btn.disabled = false; btn.textContent = label; }
         }

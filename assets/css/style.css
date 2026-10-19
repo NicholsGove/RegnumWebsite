@@ -730,3 +730,5 @@ main :where(p,li,td,dd,small,.tl-item) a:not(.btn):not(.link-arrow):hover,.phase
 @media (max-width:640px){.tablewrap-note{display:block;}}
 .notfound .stamp{top:auto;bottom:-66px;right:30px;}
 .notfound .record{margin-bottom:72px;}
+/* Honeypot field for bots: kept off screen, never shown to people */
+.hp{position:absolute !important;left:-10000px !important;width:1px;height:1px;overflow:hidden;}
