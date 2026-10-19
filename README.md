@@ -63,12 +63,10 @@ respects "reduce motion" in the operating system.
 ## Before it goes live
 
 1. **Images**: follow `IMAGE-GUIDE.md`. Until then every slot shows a dashed brief.
-2. **Finish wiring the forms.** Both forms now submit for real through
-   [Formspree](https://formspree.io), which emails each submission to the contact address.
-   One step is left: sign up at Formspree with `kevin.lengwadibe@regnumpesonia.com`, confirm
-   the address, create a form, and paste its ID into `FORMSPREE_ID` at the top of the
-   `Forms` section in `assets/js/main.js`. Until that constant is filled in, submitting
-   opens the visitor's own mail app pre-addressed to the same inbox, so nothing is lost.
+2. **Forms backend (done).** Both forms post to the `submit` function in the
+   "Regnum Personia" Supabase project, which checks each submission, blocks bots and
+   bulk sending, and saves it in the `submissions` table. Read and manage them at
+   `/inbox.html` (staff only). See "Forms backend" below.
 3. **Confirm the contact address is live.** `kevin.lengwadibe@regnumpesonia.com` is the only
    address on the site: it appears in every footer, on the contact page, and in `main.js`.
    Formspree will not forward anything until that mailbox has confirmed the sign-up.
@@ -90,3 +88,27 @@ It's plain static files, so almost anything works:
 - **Any web host**: upload by FTP into the public folder.
 
 There is no server-side code, so nothing needs configuring.
+
+## Forms backend
+
+| Part | Where |
+|---|---|
+| Database tables `submissions`, `website_admins` | Supabase project "Regnum Personia" (`supabase/migrations/`) |
+| Intake function `submit` | `supabase/functions/submit/index.ts`, deployed to the same project |
+| Website side | `assets/js/main.js`, section "Forms" (`FORMS_ENDPOINT`) |
+| Staff inbox | `inbox.html` (not linked from the site, hidden from search engines) |
+
+**Signing in to the inbox.** The first time, open `/inbox.html`, type your email and a
+password of at least 8 characters, and press "First time? Create your password". Open the
+confirmation link Supabase emails you, then come back and sign in. Only addresses in the
+`website_admins` table can see submissions. To add someone, insert their email (lower case)
+into that table from the Supabase dashboard (Table Editor).
+
+**Email alerts (optional).** Every submission is already saved. To also get an email for
+each one, create a free Resend account, verify a sending domain, and add three secrets in
+Supabase (Edge Functions, Secrets): `RESEND_API_KEY`, `NOTIFY_EMAIL` (where alerts go) and
+`NOTIFY_FROM` (for example `Regnum website <forms@yourdomain>`). No code change is needed.
+
+**Free plan note.** Supabase pauses free projects after about a week without activity.
+While paused the forms fall back to opening the visitor's email app, so nothing is lost,
+but restore the project from the dashboard when that happens.
